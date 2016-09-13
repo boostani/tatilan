@@ -1,0 +1,26 @@
+<h3>{{copy.registration.descriptionTitle}}</h3>
+<p>{{copy.registration.descriptionTitleDetails}}</p>
+<div class="top-margin-30  row">
+<div>
+    <label for="listing_title">{{copy.registration.listingName}}</label>
+    <input type="text" class="form-control" ng-model="description.title" name="listing_title" placeholder="{{copy.registration.listingNameGohst}}"/>
+    
+    <label for="listing_title" class="top-margin-30">{{copy.registration.summary}}</label>
+    <textarea type="text" class="form-control" ng-model="description.description" name="listing_title" placeholder="{{copy.registration.summaryGohst}}" rows="5"></textarea>
+    
+    <p class="top-margin-30">{{copy.registration.moreDetails}}</p>
+    
+    <div class="top-margin-30">
+        
+        <button class="btn btn-primary pull-left btn-lg" ng-click="$parent.submit(description, 'description', 'basics')">
+           <span ng-if="!spinner.description">{{copy.registration.next}}</span>
+           <div class="spinner spinner-property" ng-if="spinner.description">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </button>      
+     </div>
+    
+</div>
+</div>

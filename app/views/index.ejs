@@ -1,0 +1,23 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+</head>
+<body >
+    
+
+        <h2>Hello <%=user.userFullName%></h2>
+        <a href="/signout">Sign Out</a>
+    <section ng-view>
+        
+    </section>
+    
+    <script>
+        window.user = <%- JSON.stringify(user) %>;
+    </script>
+
+    <% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+   
+</body>
+
+
+</html>

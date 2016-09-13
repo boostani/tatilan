@@ -1,0 +1,87 @@
+#landing .navbar-default {
+    background-image: none;
+    background-color: transparent;
+    border-color: transparent;
+    position: relative;
+    z-index: 11
+}
+#landing .navbar-default .left-border{
+    border-color: transparent;
+}
+#landing .navbar-default .navbar-form {
+    display: none;
+}
+.carousel {
+    position: relative;
+    top: -90px;
+}
+#landing .navbar-default .navbar-nav > li > a {
+    color: #fff
+}
+#landing .nav-btn {
+    border: 2px solid #f7f7f7;
+    padding: 4px 8px;
+}
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-size: 1.85em;
+}
+
+.tagline-parent {
+    height: 100%;
+    width: 100%;
+
+}
+.tagline-parent .center {
+   position: relative;
+   top: 150px;
+   z-index: 10;
+}
+
+.btn-semi-transparent {
+    background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+    border-style: none;
+}
+#search-bar {
+    position: relative;
+    top: -100px;
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+#search-bar .search-container {
+    left: 0;
+    margin: auto;
+    padding: 32px;
+    position: absolute;
+    right: 0;
+}
+#search-bar .caret {
+    margin-right: 20px;
+}
+.become-host {
+    background-color: #fff;
+    
+}
+.become-host .hosting-shot{
+   
+    background: url(../img/hosting.png) no-repeat 0 -30px;
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    min-height: 295px;
+}
+
+#landing .carousel-inner {
+    position: absolute;
+    top: 0;
+}
+
+#landing .nav .material-icons {
+    color: #fff;
+    font-size: 30px;
+}
+#landing .nav .name-nav {
+    color: #fff;
+}

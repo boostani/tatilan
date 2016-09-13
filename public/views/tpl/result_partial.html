@@ -1,0 +1,34 @@
+<div class="col-sm-12 row-space-2 col-md-6 location-base" id="location{{id}}">
+    <div class="listing-img">
+        
+        <a class="media-photo media-cover"style="display: block; min-height: 200px" href="/house/{{$parent.home.id}}">
+                  <div class="listing-img-container media-cover text-center"   >
+                      <img data-should-async-load="true" alt="{{$parent.home.title}}" class="img-responsive-height" ng-src="{{coverPic.thumb}}" >
+                  </div>
+                </a>
+        
+    </div>
+    <div class="panel-card-section">
+                <div>
+                    <a class="media-photo-badge pull-left card-profile-picture card-profile-picture-offset" href="/in#/profile/edit">
+                      <div class="media-photo media-round">
+                        <img alt="{{user.firstName+' '+user.lastName}}" ng-src="{{profilePic}}" style="width: 65px; height: 65px">
+                      </div>
+                    </a>
+                  <h3 class="h5 text-truncate row-space-top-1 gray" itemprop="name" title="Amazing studio, stunning yard.">
+                    <a class="text-normal gray"  href="" >
+                      {{$parent.home.title}}
+                    </a>
+                  </h3>
+                  <div class="text-muted listing-location text-truncate" itemprop="description">
+                    <span>
+      <a class="text-normal text-muted" href="#">
+        <span ng-if="$parent.home.rentType == 'room'">{{copy.registration.room}}</span> 
+        <span ng-if="$parent.home.rentType == 'house'">{{copy.result.entireHome}}</span> 
+      </a>
+    </span>
+                  </div>
+                </div>
+            
+              </div>
+</div>

@@ -1,0 +1,41 @@
+<h3>{{copy.registration.addressTitle}}</h3>
+<p>{{copy.registration.addressTitleDetails}}</p>
+
+<div class="row top-margin-30 top-border-gray">
+
+<label>{{copy.registration.cityTown}}</label>
+<div style="margin-top: -15px; margin-bottom: 10px">{{copy.registration.cityDetails}}</div>
+   
+    <input 
+           ng-model="address.region" 
+           ng-autocomplete 
+           required="" 
+           id="Autocomplete"
+           ng-blur="getLatLong()" 
+           placeholder="{{copy.registration.regionPlaceholder}}" 
+           class="form-control"/>
+    
+    <label>{{copy.registration.address}}</label>
+    <input type="text" class="form-control" placeholder="{{copy.registration.streetAddress}}" ng-model="address.address"/>
+    
+    <label>{{copy.registration.postalCode}}</label>
+    <input type="text" class="form-control" style="width: 30%" ng-model="address.postalCode" digit/>
+    <label>{{copy.registration.directionDetails}}</label>
+    <textarea placeholder="{{copy.registration.directionsDetailsGohst}}" class="form-control" ng-model="address.direction"></textarea>
+    
+    
+     
+    <div class="top-margin-30 top-border-gray" style="padding-top: 25px;">
+        <a href="#/basics">{{copy.registration.previous}}</a>
+            <button class="btn btn-primary pull-left btn-lg" ng-click="$parent.submit(address, 'address', 'amenities')">
+               <span ng-if="!spinner.address">{{copy.registration.next}}</span>
+               <div class="spinner spinner-property" ng-if="spinner.address">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+        
+        </button>      
+        </div>
+    
+</div>

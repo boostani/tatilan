@@ -1,0 +1,31 @@
+<div class="page-container">
+<div class="col-sm-3">
+    <div class="side-nav-item text-muted">{{copy.internal.yourListings}}</div>
+    <a href="/property" class="btn btn-primary top-margin-20">{{copy.internal.addNewListing}}</a>
+</div>
+<div class="col-sm-9">
+    <div class="panel">
+        <div class="panel-header">{{copy.internal.listing}}</div>
+        <div ng-repeat="property in properties" style="padding: 35px 25px;">
+            <div class=" col-sm-5 media-photo media-photo-block-lg">
+                <div class="media-cover">
+                      <img  ng-if="property.pictures.length>0" alt="{{property.title}}" class="img-responsive-height" ng-src="img/property/{{property.id}}/{{property.pictures[0].id}}-thumb.jpg" data-current="0" itemprop="image">
+                  </div>
+            </div>
+            <div class="col-sm-7">
+                <h3>{{property.title}}</h3>
+                <div>{{property.region}}</div>
+                <p class="text-muted top-margin-10">{{copy.internal.lastUpdated}} {{property.updatedAt | date : 'yyyy/mm/dd'}}</p>
+                <div class="tom-margin-30">
+                    <a href="/house/{{property.id}}" class="btn">{{copy.internal.preview}}</a>
+                    <a href="/property/{{property.id}}" class="btn" style="margin-right: 10px">{{copy.internal.calendarAndMore}}</a>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            
+        </div>
+    </div>
+</div>    
+    
+</div>
+<div class="clearfix top-margin-30"></div>

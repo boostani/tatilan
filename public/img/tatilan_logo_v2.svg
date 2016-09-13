@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="54px" height="64px" viewBox="0 0 54 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 1 + Rectangle 1 Copy 6 + Rectangle 1 Copy + Rectangle 1 Copy 5 + Rectangle 1 Copy 2 + Rectangle 1 Copy 3 + Rectangle 1 Copy 4 Mask</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M39.7653313,51.4399163 C43.2942499,47.5640865 46.8689497,43.1258936 49.4043207,38.7357599 L49.4043207,38.7357599 L27.2484915,16.5799315 L16.0769167,27.7515026 L39.7653313,51.4399163 Z M37.0242594,54.3556986 C31.8781329,59.6654631 27.4738351,63.350496 27.4738351,63.350496 C27.4738351,63.350496 22.853066,59.6654063 17.4759175,54.35251 L17.4759175,54.35251 L25.9142136,45.9142135 L27.2484937,44.5799333 L37.0242594,54.3556986 Z M24.4200666,41.7515063 L23.0857864,43.0857865 L14.6736653,51.4979079 C11.060838,47.6978883 7.40678873,43.3516473 4.79331485,39.0351008 L13.2484891,30.5799293 L24.4200666,41.7515063 Z M3.14201677,14.8166032 C5.27651822,10.0707387 8.91132903,5.97662201 14.095759,3.4271996 L14.095759,3.4271996 L24.4200667,13.7515069 L13.248494,24.92308 L3.14201677,14.8166032 Z M1.6813744,19.012815 C0.743818862,22.6986028 0.599599861,26.5964287 1.22948739,30.3580585 C1.49837884,31.9638532 2.05441249,33.6381585 2.82776939,35.343805 L10.4200669,27.7515072 L1.6813744,19.012815 Z M51.3056317,34.9802166 C51.9834372,33.3994616 52.4797077,31.848719 52.7409904,30.3580585 C54.5382542,20.1043753 50.4809433,8.79782785 40.2464181,3.58200916 L40.2464181,3.58200916 L30.076919,13.7515049 L51.3056317,34.9802166 L51.3056317,34.9802166 Z M18.1737047,1.84829099 C20.8129844,1.07514961 23.7601029,0.649504007 27.0193755,0.649504007 C30.4229934,0.649504007 33.4872226,1.1146586 36.2161052,1.95546783 L36.2161052,1.95546783 L27.2484937,10.9230797 L18.1737047,1.84829099 L18.1737047,1.84829099 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Rectangle-1-+-Rectangle-1-Copy-6-+-Rectangle-1-Copy-+-Rectangle-1-Copy-5-+-Rectangle-1-Copy-2-+-Rectangle-1-Copy-3-+-Rectangle-1-Copy-4-Mask" sketch:type="MSLayerGroup">
+            <mask id="mask-2" sketch:name="Mask" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+            <rect id="Rectangle-1" opacity="0.285389459" fill="#26B3D5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="40.6480683" y="1.89471666" width="17" height="38.9438477">
+                <g transform="translate(49.148068, 21.366640) rotate(-45.000000) translate(-49.148068, -21.366640) "></g>
+            </rect>
+            <rect id="Rectangle-1-Copy-6" opacity="0.56588153" fill="#26B3D5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="11.6410852" y="-27.1122664" width="17" height="38.9438477">
+                <g transform="translate(20.141085, -7.640343) rotate(-45.000000) translate(-20.141085, 7.640343) "></g>
+            </rect>
+            <rect id="Rectangle-1-Copy" fill="#26B3D5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="26.5917191" y="15.9510659" width="17" height="38.9438477">
+                <g transform="translate(35.091719, 35.422990) rotate(-45.000000) translate(-35.091719, -35.422990) "></g>
+            </rect>
+            <rect id="Rectangle-1-Copy-5" opacity="0.772154851" fill="#26B3D5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="-2.91526399" y="-13.5559172" width="17" height="38.9438477">
+                <g transform="translate(5.584736, 5.916007) rotate(-45.000000) translate(-5.584736, -5.916007) "></g>
+            </rect>
+            <rect id="Rectangle-1-Copy-2" opacity="0.63123834" fill="#26B3D5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="10.689626" y="43.8739742" width="17" height="38.9438477">
+                <g transform="translate(19.189626, 63.345898) rotate(-315.000000) translate(-19.189626, -63.345898) "></g>
+            </rect>
+            <rect id="Rectangle-1-Copy-3" opacity="0.418435168" fill="#26B3D5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="-2.57910337" y="29.6052448" width="17" height="38.9438477">
+                <g transform="translate(5.920897, 49.077169) rotate(-315.000000) translate(-5.920897, -49.077169) "></g>
+            </rect>
+            <rect id="Rectangle-1-Copy-4" fill="#26B3D5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="-16.069443" y="16.1149052" width="17" height="38.9438477">
+                <g transform="translate(-7.569443, 35.586829) rotate(-315.000000) translate(7.569443, -35.586829) "></g>
+            </rect>
+        </g>
+    </g>
+</svg>

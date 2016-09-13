@@ -1,0 +1,374 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+
+    <link type="text/css" rel="stylesheet" media="all" href="../css/details.css">
+
+</head>
+<body ng-app="tatilan" ng-controller="details" id="details" ng-cloak>
+<div class="main-parent">
+<% include partials/nav.ejs %>    
+<div id="home-cover">
+	
+    <div style="background-image:url({{propertyCover.large}});" 
+	          onclick="$('img',$(this).parent()).get(0).click()" class="cover-img">
+	          <div class="page-container" style="padding-top: 30px; color: #ffffff">
+			  	<i class="material-icons white">photo_size_select_actual</i><span style="position: relative; display: inline-block; top: -8px; margin-right: 8px; font-size: 18px">{{copy.details.showPictures}}</span>
+			</div>
+	</div>
+    <div style="height:1px;overflow:hidden">
+	  <ng-gallery images="images"></ng-gallery>
+	</div>
+</div>
+<div class="page-container">
+    <div class="row relative" style="direction: ltr" >
+    
+          <div class="col-sm-4 booking-container desktop-abs desktop-left" set-class-when-at-top="fix-element" style="direction: rtl">
+            <div class="row unit-price">
+                <div class="pull-left ltr h5">{{copy.details.unit}}</div>
+                <div class="pull-right h4"><%= details.basePrice %> {{copy.details.price}}</div>
+            </div>
+            <div style="padding: 10px 5px">
+              <table width="100%">
+                  <tr>
+                      <td width="40%" class="relative">
+                     
+                        <p>{{copy.landing.checkin}}</p>
+                        <input type="text" class="form-control"  name="checkin" value="<%= search.checkIn %>" placeholder="{{copy.landing.checkin}}" ng-focus="handleCalendar()" ng-model="checkIn"/>
+                          
+                          <!--<input type="date"
+                               class="form-control well-sm pop-calendar" 
+                               datepicker-popup-persian="{{format}}"
+                               name="checkin" 
+                               value="<%= search.checkIn %>" 
+                               id="from-date"
+                               placeholder="{{copy.landing.checkin}}"
+                               ng-model='activeDate' 
+						datepicker-options="dateOptions"
+						on-change="dateUpdate(date, action)" is-open="true"/> -->
+                          
+                          <persian-datepicker  class="well-sm pop-calendar" ng-model='activeDate' 
+                        date-add="selectedDates" 
+                        multi-select='selectedDates' 
+                        select-range='true' 
+                        show-weeks='false'
+                        ng-if="calendarOpen"
+                        ng-class="{'checkOut':selectCheckout}"
+						min-date="minDate" max-date="maxDate"
+						date-disabled="dateDisabled({ date: date, mode: mode })"
+						on-change="dateUpdate(date, action)"></persian-datepicker>
+                   
+                </td>
+                <td width="40%" style="padding-right: 8px">
+                    
+
+                        <p>{{copy.landing.checkout}}</p>
+                        <input type="text" class="form-control"  name="checkout" value="<%= search.checkOut %>" placeholder="{{copy.landing.checkout}}" ng-model="checkOut"/>
+
+                   
+                </td>
+                
+                <td width="20%" style="padding-right: 8px">
+                    <p>{{copy.landing.guests}}</p>
+                    <div class="input-group-btn"> 
+               <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button" style="margin-left: -2px">1
+                   <span class="caret" style="margin-right: 5px"></span> </button> 
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">{{copy.result.guests1}}</a></li>
+                  <li><a href="#">{{copy.result.guests2}}</a></li>
+                </ul>
+           </div>
+                </td>
+                </tr>
+              </table>
+              <table width="100%" style="margin-top: 20px;" ng-if="numDays>0">
+                  <tr>
+                      <td class="padding-8"><table class="pull-right" cellpadding="5"><tr><td><%= details.basePrice %></td><td style="padding: 0 5px"> x </td><td>{{ numDays }}</td><td style="padding: 0 5px">شب</td></tr></table><span class="pull-left">{{ details.basePrice * numDays }} </span></td>
+                  </tr>
+                  <tr class="border-top">
+                    <td class="padding-8"><span>{{copy.details.serviceFee}}</span><span class="pull-left">{{serviceFee }}</span></td>
+                  </tr>
+                  <tr class="border-top">
+                    <td class="padding-8"><span>{{copy.details.total}}</span><span class="pull-left">{{ total }}</span></td>
+                  </tr>
+                  <tr>
+                  <td style="padding: 30px 8px">
+                    <button class="btn btn-primary btn-lg" style="width: 100%">{{copy.details.book}}</button>
+                  </td>
+                      </tr>
+              
+              </table>
+              <div style="margin-top: 20px;" ng-if="numDays <1">
+                    <h4 class="red">{{copy.details.selectDate}}</h4>
+                   <button class="btn btn-primary btn-lg top-margin-20 disabled" style="width: 100%; margin-bottom: 10px">{{copy.details.book}}</button>
+                </div>
+              
+            </div>
+          </div>
+        
+        <!-- listing details -->
+        <div class="col-sm-8 desktop-right" style="direction: rtl">
+        	
+            <div class="row">
+                <table width="100%" >
+                    <tr>
+                        <td width="25%" class="center" style="padding: 15px 2px">
+                            <div class="media-photo media-round relative" style="width: 100px; height: 100px">
+                            	<% if(details.user.pictureUploaded){ %>
+                                <img src="<%= '/img/profile/'+details.user.id+'/'+details.user.id+'-thumb.jpg' %>" style="width: 100px; height: 100px" alt="Profile Picture">
+                                <% } else {%>
+	                              <i class="material-icons" style="font-size: 120px; position: absolute; right: -10px; top: -10px;">account_circle</i>
+	                            <% } %>
+                            </div>
+                            <h4 class="center">
+                              <%= details.user.firstName %>
+                            </h4>
+                        </td>
+                        <td width="75%" style="padding: 15px " class="align-top">
+                            <h3 style="margin-top: 10px; margin-bottom: 5px"><%= details.title %></h3>
+                            <span><%= details.region %></span>
+                            <table width="100%">
+                                <tr>
+                                  <% if(details.rentType){ %>
+                                    <td width="25%" class="property-details">
+                                      <i class="material-icons">home</i>  
+                                      <div class="center"><%= details.rentType %></div>
+                                    </td>
+                                  <% } %>
+                                  <% if(details.capacity){ %>
+                                    <td width="25%" class="property-details">
+                                        <i class="material-icons">group</i>
+                                      <div>  <%= details.capacity %> میهمان</div>
+                                    </td>
+                                    <% } %>
+                                    <% if(details.rooms){ %>
+                                    <td width="25%" class="property-details">
+                                        <i class="material-icons">store</i>  
+                                        <div><%= details.rooms %> اتاق خواب</div>
+                                    </td>
+                                    <% } %>
+                                    <% if(details.singleBed || details.fullBed){ %>
+                                    <td width="25%" class="property-details">
+                                        <i class="material-icons">insert_drive_file</i>  
+                                       <div><%= details.singleBed+details.fullBed %> تخت خواب</div>
+                                    </td>
+                                    <% } %>
+         
+                                    
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- supper details -->
+    <div class="property-detail-container" style="padding-bottom: 50px">
+        <div class="page-container">
+    <div class="row">
+        <div class="col-sm-8 pull-right">
+            <div style="padding: 5px 15px">
+                <h4>{{copy.details.aboutListing}}</h4>
+                <% if(details.description){ %>
+	                <p>
+	                <%= details.description %>
+	
+	                </p>
+                <% } %>
+            </div>
+            <div class="post-row">
+                <div class="col-sm-4 text-muted">
+                    {{copy.details.aboutSpace}}
+                </div>
+                <div class="col-sm-4  margin-0">
+                	<% if(details.capacity){ %>
+                    	<div><span class="key">{{copy.details.accomodates}}</span><span class="value"><%= details.capacity %></span></div>
+                    <% } %>
+                    <% if(details.rooms){ %>
+	                    <div><span class="key">{{copy.details.bedrooms}}</span><span class="value"><%= details.rooms %></span></div>
+                    <% } %>
+                    <% if(details.bath){ %>
+	                    <div><span class="key">{{copy.details.bathroom}}</span><span class="value"><%= details.bath %></span></div>
+	                <% } %>
+                    <% //<div><span class="key">{{copy.details.bedType}}</span><span class="value">8</span></div> %>
+                    <% if(details.singleBed || details.fullBed){ %>
+                    	<div>
+                    		<span class="key">{{copy.details.beds}}</span><span class="value"><%= details.fullBed+ 'دو نفره' %> <%= details.singleBed+ 'یک نفره' %></span>
+                    	</div>
+                    <% } %>
+                </div>
+                <div class="col-sm-4  margin-0">
+                    <div><span class="key">{{copy.landing.checkin}}</span><span class="value">2:00</span></div>
+                    <div><span class="key">{{copy.landing.checkout}}</span><span class="value">2:00</span></div>
+                    <div><span class="key">{{copy.details.propertyType}}</span>
+                    	<% if(details.propertyType == 'apartment'){ %>
+                    		<span class="value">{{copy.list.apartment}}</span>
+                    	<% }else{ %>
+	                    	<span class="value">{{copy.list.house}}</span>	
+	                     <% } %>
+                    </div>
+                    <div><span class="key">{{copy.details.roomType}}</span>
+                    	<% if(details.rentType == 'room'){ %>
+                    		<span class="value">{{copy.registration.rooms}}</span>
+                    	<% }else{ %>
+	                    	<span class="value">{{copy.registration.entireHome}}</span>	
+	                     <% } %>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <!-- amenities -->
+            <div class="post-row">
+                <div class="col-sm-4 text-muted">
+                    {{copy.details.amenities}}
+                </div>
+                <div class="col-sm-8" style="padding: 0">
+                    <%if (details.tv) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.tv}}</span></div><%}%>
+                    <%if (details.kitchen) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.kitchen}}</span></div><%}%>
+                    <%if (details.cookingTools) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.cookingTools}}</span></div><%}%>
+                    <%if (details.dishes) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.dishes}}</span></div><%}%>
+                    <%if (details.internet) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.wirelessInternet}}</span></div><%}%>
+                    <%if (details.shampoo) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.shampoo}}</span></div><%}%>
+                    <%if (details.heatingSystem) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.heating}}</span></div><%}%>
+                    <%if (details.washer) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.washer}}</span></div><%}%>
+                    <%if (details.coolingSystem) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.airCondition}}</span></div><%}%>
+                    <%if (details.parking) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.parking}}</span></div><%}%>
+                    <%if (details.cableTv) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.cableTv}}</span></div><%}%>
+                    <%if (details.bbq) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.bbqPlace}}</span></div><%}%>
+                    <%if (details.internet){%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.smokingAllowed}}</span></div><%}%>
+                    <%if (details.firePlace) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.IndoorFireplace}}</span></div><%}%>
+                    <%if (details.pool) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.pool}}</span></div><%}%>
+                    <%if (details.hottub) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.hotTub}}</span></div><%}%>
+                    <%if (details.allDayCheckIn) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.fullCheckIn}}</span></div><%}%>
+                    <%if (details.hangers) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.hangers}}</span></div><%}%>
+                    <%if (details.iron) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.iron}}</span></div><%}%>
+                    <%if (details.blowDryer) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.hairDryer}}</span></div><%}%>
+                    <%if (details.goodForEvents) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.suitableForEvent}}</span></div><%}%>
+                    <%if (details.petAllowed) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.petAllowed}}</span></div><%}%>
+                    <%if (details.smockingAllowed) {%><div class="col-sm-6 margin-0"><span class="value">{{copy.details.smockingAllowed}}</span></div><%}%>
+                     <%if (details.wheelchaireAccessible) {%><div class="col-sm-6"><span class="value">{{copy.details.wheelchaireAccessible}}</span></div><%}%>
+                    
+   
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <!-- price -->
+            <div class="post-row">
+            
+                <div class="col-sm-4 text-muted">
+                    {{copy.details.prices}}
+                </div>
+                <div class="col-sm-4  margin-0">
+                <%if (details.basePrice) {%>
+                    <div><span class="key">{{copy.details.monthlyDiscount}}</span><span class="value"><%= details.basePrice %> {{copy.registration.toman}}</span></div>
+                    <% } %>
+                    <%if (details.weeklyDiscount) {%>
+                    <div><span class="key">{{copy.details.weeklyDiscount}}</span><span class="value"><%= details.weeklyDiscount %> {{copy.registration.percent}}</span></div>
+                 <% } %>
+                <%if (details.monthlyDiscount) {%>   
+	                <div><span class="key">{{copy.details.monthlyDiscount}}</span><span class="value"><%= details.monthlyDiscount %> {{copy.registration.percent}}</span></div>
+	              <% } %>   
+                   
+                   
+                </div>
+                <div class="col-sm-4  margin-0">
+                
+                 <div><span class="key">{{copy.details.cancellation}}</span><span class="value">حداقل ۴۸ ساعت قبل از شروع اقامت. هزینه لغو با  زمان لغو تغییر میکند.</span></div>
+                <%if (details.cleaningFee) {%>
+                    <div><span class="key">{{copy.details.cleaningFee}}</span><span class="value"><%= details.cleaningFee %></span></div>
+                <% } %>
+                <%if (details.securityDeposit) {%>
+                    <div><span class="key">{{copy.details.securityDeposit}}</span><span class="value"><%= details.securityDeposit %></span></div>
+                 <% } %>
+                
+                </div>
+                
+                <div class="clearfix"></div>
+            </div>
+            
+            <!-- Description  
+            <div class="post-row">
+                <div class="col-sm-4">
+                    <span class="text-muted">{{copy.details.details}}</span>
+                </div>
+                <div class="coll-sm-8">
+                    <div style="display: table">
+   
+                 
+                    <p>
+                     
+                    </p>
+               
+                    
+                </div>
+                
+                </div>
+                <div class="clearfix" style="height: 40px"></div>
+                
+            </div> -->
+                
+                
+                
+        
+        
+        </div>
+
+    </div>
+            </div>
+    </div>
+    
+    <% if(details.user.description){%>
+     <div class="owner-detail-container top-border-gray">
+        <div class="page-container" >
+            <div class="col-sm-8">
+            <h4 style="margin-top: 30px">{{copy.details.yourHost}}</h4>
+            <!-- price -->
+            <div class="post-row">
+                <div class="col-sm-4 center">
+                    <div class="media-photo media-round relative" style="width: 80px; height: 80px">
+                        <% if(details.user.pictureUploaded){ %>
+                            <img src="<%= '/img/profile/'+details.user.id+'/'+details.user.id+'-thumb.jpg' %>" style="width: 80px; height: 80px" alt="Profile Picture">
+                        <% } else {%>
+	                        <i class="material-icons" style="font-size: 100px; position: absolute; right: -12px; top: -12px;">account_circle</i>
+	                    <% } %>
+                  </div>
+                          
+                </div>
+                <div class="col-sm-8" style="display: table">
+                    <span class=""><%= details.user.firstName+ ' '+details.user.lastName %></span>
+                    
+                    <p>
+						<%= details.user.description %>
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="clearfix"></div>
+         </div>
+    </div>
+    <% } %>
+    <% include partials/footer.ejs%>
+    <script>
+
+        window.search = <%- JSON.stringify(search) %>;
+        window.user = <%- JSON.stringify(user) %>;
+        window.details = <%- JSON.stringify(details) %>;
+        window.property = <%- JSON.stringify(details) %>;
+        window.available = <%- JSON.stringify(available) %>;
+        
+    </script>
+    <script type="text/javascript" src="/lib/ngGallery/src/js/ngGallery.js"></script>
+    <% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+    <script type="text/javascript" src="../lib/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/js/directivs/fix.section.directive.js"></script>
+    <script type="text/javascript" src="/js/controllers/details.client.controller.js"></script>
+     <script type="text/javascript" src="/js/controllers/signing.client.controller.js"></script>
+   
+</body>
+
+
+</html>

@@ -1,0 +1,73 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+<link type="text/css" rel="stylesheet" media="all" href="../css/landing.css">
+<link rel="stylesheet" type="text/css" href="/css/jobs.css">
+</head>
+<body ng-app="tatilan" ng-controller="jobs" id="landing" ng-cloak>
+<div class="main-parent" >
+
+
+<% include partials/nav.ejs %>
+<div class="header">
+	<div class="clearfix"></div>
+	<h2 class="white center" style="padding-top: 40px">{{copy.landing.workWithUs}}</h2>
+</div>
+    <div class="page-container" style="padding: 40px 55px; margin-top: 40px; width: 800px;" >
+    	<h1>{{copy.landing.workingInTatilan}}</h1>
+    	<div>
+    	<p class="top-margin-30">
+    	تعطیلان یک شرکت در حال توسعه و پویا هست.   این شرکت نوپا، با انرژی و انگیزه ای قوی هدف خود را جهت تسهیل اجاره ملک برای کاربرانی که ایام تعطیل خود را برنامه ریزی  میکنند پیش میبرد.  این شرکت با سیستم مدیریتی کاملا پیشرو اداره میشود و تلاش میکند شرایط پیشرفت، شکوفایی و رشد استعدادهای کارکنانش را تا حد امکان فراهم آورد.
+    	</p>
+    	<p>
+    	اگر شما فعال، تیز و باهوش، پر از انرژی مثبت  و هر کاری را بواسطه روحیه قویتان امکانپذیر میبینید، ما منتظر شما هستیم. موقعیت های کاری فعلی به شرح زیر میباشند: 
+    	</p>
+    	<ul class="list">
+    		<li class="top-margin-30">
+    			<h3> توسعه دهنده وب</h3>
+				<h5>node, express, angular در تهران</h5>
+				<p>
+				- تجربه کار قبلی با اکسپرس را دارید و از orm در پروژهایتان استفاده کردید.<br/>
+- انگولار را به خوبی میشناسید و با ان پروژه اجرایی داشته اید.<br/>
+- با html & CSS به خوبی آشنا هستید.<br/>
+- با Relational DBs & SQL queries آشنایی کامل دارید.<br/>
+- میتوانید یک ماجول نرم افزاری را از طراحی تا برنامه نویسی تا تست و رلیس را بدون مشکل به انجام برسانید.<br/>
+- با گیت و لینوکس آشنایی کامل دارید.<br/>
+- تجربه کار گروهی داشته اید.<br/>
+    		</p>
+    		</li>
+    		<li class="top-margin-30">
+    			<h3>مسئول فروش و بازاریابی</h3>
+    			<h5>در تهران و شهرهای شمالی ایران</h5>
+    			<p>
+    				- قدرت ارتباط عمومی بسیار بالا.<br/>
+    				- توانایی برای هماهنگ سازی و پیگیری بالا برای به نتیجه رساندن پروسه فروش.<br/>
+    				- انظبات کاری بالا و قدرت کار گروهی.<br/>
+    			</p>
+    		</li>
+    		<li class="top-margin-30">
+    		<h3>مشاور حقوقی</h3>
+    			<h5> تهران</h5>
+    		</li>
+    	</ul>
+    	<p class="top-margin-30">اگر دارای تجربه در زمینه های قید شده هستید، رزومه خود را به ما ارسال کنید: hello at tatilan dot com </p>
+    	</div>
+    </div>
+
+    
+    <% include partials/footer.ejs%>
+    
+</div>
+    
+    <script>
+        window.user = <%- JSON.stringify(user) %>;
+    </script>
+
+    <% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+   
+    <script type="text/javascript" src="/js/controllers/jobs.client.controller.js"></script>
+
+ <script type="text/javascript" src="/js/controllers/signing.client.controller.js"></script>
+   
+</body>
+</html>

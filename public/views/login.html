@@ -1,0 +1,56 @@
+
+<!-- Modal -->
+<div id="myModal" class="modal fade signing" role="dialog">
+  <div class="modal-dialog modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content" ng-if="signing == 'signin'">
+      <div class="modal-header">
+        <!--<button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <div class="clearfix"></div>
+        <div class="btn btn-lg google-btn" style="border: 1px solid #ccc">Log in with Google</div>
+      </div>
+      <div class="modal-body">
+
+        <input type="text" name="email"  class="ltr input-full-width" placeholder="{{copy.landing.emailAddress}}"></input>
+
+        <input type="text" name="password"  class="ltr input-full-width" placeholder="{{copy.landing.password}}"></input>
+      <div>
+          <a href="#" ng-click="switchLogin('passwordReset')">{{copy.landing.forgotPassword}}</a>
+          {{signing}}
+      </div>
+      <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px">{{copy.landing.login}}</button>
+ 
+      </div>
+      <div class="modal-footer">
+        <span>{{copy.landing.noUserAccount}}</span>
+        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="signing = 'forgot'">{{copy.landing.signUp}}</button>
+      </div>
+    </div>
+
+    <!-- forgot Password -->
+    <div class="modal-content" ng-if="signing === 'passwordReset'">
+      <div class="modal-header">
+        <!--<button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <div class="clearfix"></div>
+        <div class="btn btn-lg google-btn" style="border: 1px solid #ccc">Log in with Google</div>
+      </div>
+      <div class="modal-body">
+
+        <input type="text" name="email"  class="ltr input-full-width" placeholder="{{copy.landing.emailAddress}}"></input>
+
+
+         <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px">{{copy.landing.login}}
+        </button>
+ 
+      </div>
+     
+      <div class="modal-footer">
+        <span>{{copy.landing.noUserAccount}}</span>
+        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="signing = 'forgot'">{{copy.landing.signUp}}</button>
+      </div>
+
+</div>
+    </div>
+
+  </div>

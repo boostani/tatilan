@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html ng-app="tatilan" lang="fa" xml:lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Tatilan</title>
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap/bootstrap.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap/bootstrap-theme.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap-overrides.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/common.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/carousel.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/landing.css">
+</head>
+<body ng-controller="landing" id="landing">
+<div class="main-parent">
+<ng-include src="'navigation_partial.html'" style="position: relative; z-index: 1150"></ng-include>
+
+<div data-ride="carousel" class="carousel slide carousel-fade" id="myCarousel">
+      <!-- Indicators
+      <ol class="carousel-indicators">
+        <li class="" data-slide-to="0" data-target="#myCarousel"></li>
+        <li data-slide-to="1" data-target="#myCarousel" class=""></li>
+        <li data-slide-to="2" data-target="#myCarousel" class="active"></li>
+      </ol>-->
+
+        <div class="tagline-parent">
+              <div class="clearfix"></div>
+              <div class="center">
+                <h1 class="white" style="font-size: 4em">
+                  {{copy.landing.tagline}}
+                </h1>
+                <div class="h4 text-contrast white" style="font-size: 1.9em">
+                    {{copy.landing.taglineDescription}}
+
+                </div>
+
+                <a class="btn hide-sm btn-contrast btn-large btn-semi-transparent white" href="/info/how_it_works" style="margin-top: 20px">
+                  {{copy.landing.howItWorks}}
+                </a>
+              </div>
+
+            </div>
+
+      <div role="listbox" class="carousel-inner">
+        <div class="item first-slide">
+
+        </div>
+          <div class="item active second-slide">
+
+        </div>
+          <div class="item third-slide">
+
+        </div>
+        <!--<div class="item ">
+          <img alt="Third slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="third-slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>One more for good measure.</h1>
+              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p><a role="button" href="#" class="btn btn-lg btn-primary">Browse gallery</a></p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <!--<a data-slide="prev" role="button" href="#myCarousel" ng-non-bindable  class="left carousel-control">
+        <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a data-slide="next" role="button" href="#myCarousel" ng-non-bindable  class="right carousel-control">
+        <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>-->
+   <div id="search-bar">
+       <div class="col-lg-6 search-container">
+       <div class="input-group">
+           <div class="input-group-btn">
+               <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button" style="margin-left: -2px">{{copy.landing.selectDestination}}
+                   <span class="caret"></span> </button>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">{{copy.result.guests1}}</a></li>
+                  <li><a href="#">{{copy.result.guests2}}</a></li>
+                </ul>
+           </div>
+           <div class="form-group">
+        <div class="col-sm-6" style="padding: 0; margin-right: -1px">
+            <input type="text" class="form-control" placeholder="{{copy.landing.checkin}}">
+        </div>
+        <div class="col-sm-6" style="padding: 0; margin-right: -1px">
+            <input type="text" class="form-control" placeholder="{{copy.landing.checkout}}">
+        </div>
+    </div>
+           <div class="input-group-btn">
+               <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">{{copy.result.guests1}}
+                   <span class="caret"></span> </button>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">{{copy.result.guests1}}</a></li>
+                  <li><a href="#">{{copy.result.guests2}}</a></li>
+                  <li><a href="#">{{copy.result.guests3}}</a></li>
+                  <li><a href="#">{{copy.result.guests4}}</a></li>
+                  <li><a href="#">{{copy.result.guests5}}</a></li>
+                  <li><a href="#">{{copy.result.guests6}}</a></li>
+                  <li><a href="#">{{copy.result.guests7}}</a></li>
+                  <li><a href="#">{{copy.result.guests8}}</a></li>
+                  <li><a href="#">{{copy.result.guests9}}</a></li>
+                  <li><a href="#">{{copy.result.guests10}}</a></li>
+                  <li><a href="#">{{copy.result.guests11}}</a></li>
+                  <li><a href="#">{{copy.result.guests12}}</a></li>
+
+                </ul>
+               <button class="btn btn-primary brand-border-color" style="border: 1px solid #26B2D4" type="button">{{copy.landing.search}}</button>
+           </div>
+
+    </div>
+
+    </div>
+       </div>
+    </div>
+    <div class="page-container">
+        <div class="become-host">
+            <div class="col-lg-8 hosting-shot full-height"></div>
+            <div class="col-lg-4 jumbotron" style="padding-right: 40px; padding-right: 35px">
+                <h3 style="margin-top: 0px; margin-bottom: 25px">{{copy.landing.hostingPlug}}</h3>
+                <p><h5 style="margin-top: 5px; margin-bottom: 30px">{{copy.landing.hostingPlugDetail}}</h5></p>
+                <a class="btn btn-primary" href="#">{{copy.landing.hostingPlugLink}}</a>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    <div class="clearfix"></div>
+        <div >
+            <h2 style="margin-top: 45px; margin-bottom: 20px">{{copy.landing.destinations}}</h2>
+            <div class="row">
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="../img/namakabrud.png" alt="Namakabrud">
+
+                    <h3 class="white" style="margin-top: -45px; margin-right: 20px">{{copy.landing.namakabrud}}</h3>
+
+                </div>
+              </div>
+                <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="../img/kelardasht.png" alt="Kelardasht">
+                  <div class="">
+                    <h3 class="white" style="margin-top: -45px; margin-right: 20px">{{copy.landing.kelardasht}}</h3>
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="../img/chalus.png" alt="Chalus">
+                  <div class="">
+                    <h3 class="white" style="margin-top: -45px; margin-right: 20px">{{copy.landing.chalus}}</h3>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-include src="'footer.html'" style=""></ng-include>
+
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../lib/angular/angular.js"></script>
+<script type="text/javascript" src="../lib/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="../lib/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="../lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.0.js"></script>
+<script type="text/javascript" src="../lib/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="../lib/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="../js/carousel.js"></script>
+<script type="text/javascript" src="../js/directivs/persian.date.filter.js"></script>
+<script type="text/javascript" src="../js/directivs/persian.date.tpl.js"></script>
+
+
+<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="../js/copy.js"></script>
+    <script type="text/javascript" src="../js/controllers/signing.client.controller.js"></script>
+<script type="text/javascript" src="../js/controllers/landing.client.controller.js"></script>
+</body>
+</html>

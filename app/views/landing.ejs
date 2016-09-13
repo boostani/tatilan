@@ -1,0 +1,222 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+<link type="text/css" rel="stylesheet" media="all" href="../css/landing.css">
+</head>
+<body ng-app="tatilan" ng-controller="landing" id="landing" ng-cloak>
+
+<% // amaken laws modal %>
+<div id="amakenTerms" class="modal fade signing" role="dialog"  control-modal>
+  
+  <div class="modal-dialog modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+    
+	<div class="modal-header">
+     	<button type="button" class="close" data-dismiss="modal">&times;</button> 
+     	<h3>شرح موازین اماکن عمومی اجرایی در سرویس تعطیلان</h3>
+     </div>
+     
+      <div class="modal-body" style="padding: 20px 60px 50px">
+      اخرین اصلاحیه: ۱۲، ۵، ۱۳۹۵
+<p>
+این صفحه اصول و موازین سایت تعطیلان را از بعد اصول اماکن شرح میدهد. برای مطالعه قوانین دیگراین سرویس،
+<a href="/terms">به صفحه اصول و شرایط استفاده از سایت مراجعه کنید.</a> 
+</p>
+<p>
+در این سند، موجر، نمااینده مستقیم و یا نماینده منتصب از طرف سرویس تعطیلان با نام میزبان و کاربر انلاین سایت که رزرواسیون را انجام میدهد به همراهی تمامی افرادی که از ملک اجاره شده استفاده خواهند کرد، میهمان نام برده میشوند.
+</p>
+<p>
+<h4>شرح اصول:</h4>
+<ul class="list mavazin-list" >
+<li>قوانین سایت تعطیلان با کلیه موازین جاری برهتلها و اماکن عمومی جمهوری اسلامی ایران منطبق میباشد.
+</li>
+<li>بر طبق این قوانین، تمامی نفرات استفاده کننده از یک واحد اجاره ای، باید شرعا اجازه استفاده از ملک را داشته باشند.</li>
+<li>قوانین بند دو برتمامی میهمانهای تابع ایران قابل اجرا میباشد.اعمال این شرایط برای میهمانهای غیر ایرانی ممکن است متفاوت باشد.</li>
+<li>میهمانها با تبعیت ایرانی باید شناسنامه خود را در هنگام تحویل ملک، جهت احراز نسبت شرعی خود به همراه داشته باشند.</li>
+<li>احراز صلاحیت میهمانان تماما بر عهده میزبان میباشد و از حوزه عمل سرویس تعطیلان خارج است.</li>
+<li>میزبان، طبق درخواست سرویس تعطیلان، میباید مستندات لازم را از طریق کپی و یا عکس، جمع اوری کند.</li>
+<li>میزبان قانونا مجاز است، در صورت تشخیص عدم انطباق نسبت مستاجران با قوانین حاکم بر اماکن عمومی از تحویل ملک به میهمان خودداری کند.</li>
+<li>این قوانین محدود به برسی نسبت میهمانان نیست و مشمول نحوه استفاده از ملک نیز میگردد.</li>
+<li> کاربر اجاره کننده، به نیابت از تمامی میهمانان تعهد میدهد که در مدت اقامت، هیچگونه تخلف شرعی، مدنی و امنیتی از هیچ کدام از میهمانان سر نزند.</li>
+<li>در صورت محرز شدن هرگونه تخلف میهمانان به میزبان و یا افراد دیگر حاضر در محل، میزبان میتواند قرارداد را لغو و از میهمانان درخواست کند ملک را تخلیه کنند.</li>
+<li>در صورت عدم تحویل ملک و یا لغو معامله، میزبان باید مستندات لازم را به هیات برسی تعطیلان ارایه دهد.</li>
+<li>درصورت عدم تحویل ملک ، پس از محرز شدن تختی میهمان، تنها ۵۵٪ از هزینه اقامت به میهمان بازگردانده خواهد شد.</li>
+<li>در صورت درخواست تخلیه، پس از کارشناسی وظعیت توسط هیأت برسی تعطیلان، امکان بازپرداخت ۵۵٪ تا ۰٪ به میهمان وجود دارد.</li>
+<li>در صورت محرز شدن هرگونه جرم توسط اجاره کننده گان، تعطیلان همه گونه همکاری را با مقامات امنیتی و قضایی را به عمل خواهد آورد.</li>
+</ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="main-parent">
+
+
+<% include partials/nav.ejs %>
+    
+<div data-ride="carousel" class="carousel slide carousel-fade" id="myCarousel">
+      <!-- Indicators 
+      <ol class="carousel-indicators">
+        <li class="" data-slide-to="0" data-target="#myCarousel"></li>
+        <li data-slide-to="1" data-target="#myCarousel" class=""></li>
+        <li data-slide-to="2" data-target="#myCarousel" class="active"></li>
+      </ol>-->
+  
+        <div class="tagline-parent">
+              <div class="clearfix"></div>
+              <div class="center">
+                <h1 class="white" style="font-size: 4em">
+                  {{copy.landing.tagline}}
+                </h1>
+                <div class="h4 text-contrast white" style="font-size: 1.9em">
+                    {{copy.landing.taglineDescription}}
+                  
+                </div>
+
+                <a class="btn hide-sm btn-contrast btn-large btn-semi-transparent white" href="/info/how_it_works" style="margin-top: 20px">
+                  سایت تعطیلان هنوز برای مسافران راه اندازی نشده
+                </a>
+                
+                <h4><span class="islamicLow">{{copy.landing.islamicLaw}} <a href="" data-target="#amakenTerms" data-toggle="modal" >{{copy.landing.viewRule}}</a></span></h4>
+              </div>
+
+            </div>
+    
+      <div role="listbox" class="carousel-inner">
+        <div class="item first-slide">
+         
+        </div>
+          <div class="item active second-slide">
+          
+        </div>
+          <div class="item third-slide">
+          
+        </div>
+
+      </div>
+      <!--<a data-slide="prev" role="button" href="#myCarousel" ng-non-bindable  class="left carousel-control">
+        <span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a data-slide="next" role="button" href="#myCarousel" ng-non-bindable  class="right carousel-control">
+        <span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>-->
+   <div id="search-bar">
+       <div class="col-lg-6 search-container center">
+       <% /*
+       <div class="input-group"> 
+           <div class="input-group-btn"> 
+               <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button" style="margin-left: -2px">{{copy.landing.selectDestination}}
+                   <span class="caret"></span> </button> 
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">{{copy.result.guests1}}</a></li>
+                  <li><a href="#">{{copy.result.guests2}}</a></li>
+                </ul>
+           </div>
+           <div class="form-group">
+        <div class="col-sm-6" style="padding: 0; margin-right: -1px">
+            <input type="text" class="form-control" placeholder="{{copy.landing.checkin}}">
+        </div>
+        <div class="col-sm-6" style="padding: 0; margin-right: -1px">
+            <input type="text" class="form-control" placeholder="{{copy.landing.checkout}}">
+        </div>
+    </div>
+           <div class="input-group-btn"> 
+               <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">{{copy.result.guests1}}
+                   <span class="caret"></span> </button> 
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">{{copy.result.guests1}}</a></li>
+                  <li><a href="#">{{copy.result.guests2}}</a></li>
+                  <li><a href="#">{{copy.result.guests3}}</a></li>
+                  <li><a href="#">{{copy.result.guests4}}</a></li>
+                  <li><a href="#">{{copy.result.guests5}}</a></li>
+                  <li><a href="#">{{copy.result.guests6}}</a></li>
+                  <li><a href="#">{{copy.result.guests7}}</a></li>
+                  <li><a href="#">{{copy.result.guests8}}</a></li>
+                  <li><a href="#">{{copy.result.guests9}}</a></li>
+                  <li><a href="#">{{copy.result.guests10}}</a></li>
+                  <li><a href="#">{{copy.result.guests11}}</a></li>
+                  <li><a href="#">{{copy.result.guests12}}</a></li>
+
+                </ul>
+               <button class="btn btn-primary brand-border-color" style="border: 1px solid #26B2D4" type="button">{{copy.landing.search}}</button> 
+           </div> 
+           
+    </div>
+       */ %>
+       <a ng-click="selectModal('signUp')" data-target="#signing" data-toggle="modal" href="#/signup?redirect=property" class="btn btn-primary btn-lg center">ملک خودتو به تعطیلان اضافه کن</a>
+    </div>
+       </div>
+    </div>
+    <div class="page-container">
+        <div class="become-host">
+            <div class="col-lg-8 hosting-shot full-height"></div>
+            <div class="col-lg-4 jumbotron" style="padding-right: 40px; padding-right: 35px">
+                <h3 style="margin-top: 0px; margin-bottom: 25px">{{copy.landing.hostingPlug}}</h3>
+                <p><h5 style="margin-top: 5px; margin-bottom: 30px">{{copy.landing.hostingPlugDetail}}</h5></p>
+                <a class="btn btn-primary" href="/howtorent">{{copy.landing.hostingPlugLink}}</a>
+            
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    <div class="clearfix"></div>
+        <% /*<div >
+            <h2 style="margin-top: 45px; margin-bottom: 20px">{{copy.landing.destinations}}</h2>
+            <div class="row">
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="../img/namakabrud.png" alt="Namakabrud">
+   
+                    <h3 class="white" style="margin-top: -45px; margin-right: 20px">{{copy.landing.namakabrud}}</h3>
+                    
+                </div>
+              </div>
+                <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="../img/kelardasht.png" alt="Kelardasht">
+                  <div class="">
+                    <h3 class="white" style="margin-top: -45px; margin-right: 20px">{{copy.landing.kelardasht}}</h3>
+                    
+                  </div>
+                </div>
+              </div>
+                
+                <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <img src="../img/chalus.png" alt="Chalus">
+                  <div class="">
+                    <h3 class="white" style="margin-top: -45px; margin-right: 20px">{{copy.landing.chalus}}</h3>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>*/ %>
+    </div>
+    
+    <% include partials/footer.ejs%>
+    
+    
+</div>
+    <!--<section ng-view>
+        
+    </section>-->
+    
+    <script>
+        window.user = <%- JSON.stringify(user) %>;
+    </script>
+
+    <% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+   <script type="text/javascript" src="/js/carousel.js"></script>
+    <script type="text/javascript" src="/js/controllers/landing.client.controller.js"></script>
+
+ <script type="text/javascript" src="/js/controllers/signing.client.controller.js"></script>
+   
+</body>
+</html>

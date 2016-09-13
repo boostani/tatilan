@@ -1,0 +1,46 @@
+
+<h3 ng-if="!$parent.home.frequentRenter">{{copy.registration.calendarTitle}}</h3>
+<p ng-if="!$parent.home.frequentRenter">{{copy.registration.calendarTitleDescription}}</p>
+<h3 ng-if="$parent.home.frequentRenter">{{copy.registration.calendarFrequentTitle}}</h3>
+<p ng-if="$parent.home.frequentRenter">{{copy.registration.calendarFrequentTitleDescription}}</p>
+<div class="top-margin-30">   
+   
+    <persian-datepicker  class="well-sm property-calendar" ng-model='activeDate' 
+                        date-add="selectedDates" 
+                        multi-select='selectedDates' 
+                        select-range='{{type=="range"}}' 
+                        style="border: 0" 
+						min-date="minDate" max-date="maxDate"
+						date-disabled="dateDisabled({ date: date, mode: mode })"
+						on-change="dateUpdate(date, action)"></persian-datepicker>
+        
+            <!--<div ng-repeat='d in selectedDates'>
+                {{d | date : 'fullDate'}}
+                <button class='btn btn-xs btn-warning' style='margin:5px' ng-click='removeFromSelected(d)'>Remove</button>
+              </div>-->
+</div>
+
+ <div class="top-margin-30 top-border-gray" style="padding-top: 25px">
+        <a href="#/basics">{{copy.registration.previous}}</a>
+            <button 
+              class="btn btn-primary pull-left btn-lg"
+              data-toggle="modal" 
+              data-target="#confirmation"
+              ng-click="completeRegistration()"
+              ng-if="!$parent.home.listingCompleted && $parent.changes.length==7 && $parent.home.title && $parent.home.basePrice && $parent.home.propertyType && $parent.home.rentType && $parent.changes.indexOf('photos') != -1">
+                {{copy.registration.complete}}
+            </button> 
+            <button 
+              class="btn btn-primary pull-left btn-lg"
+              data-toggle="modal" 
+              data-target="#incomplete"
+              ng-if="$parent.changes.length<7 || !$parent.home.basePrice || !$parent.home.title || !$parent.home.propertyType || !$parent.home.rentType || $parent.changes.indexOf('photos') == -1">
+                {{copy.registration.complete}}
+            </button>
+            <a href="/in#/listings" 
+               class="btn btn-primary pull-left btn-lg"
+               ng-if="$parent.home.listingCompleted">{{copy.registration.complete}}</a>
+ </div>
+
+<!-- incomplete modal -->
+

@@ -1,0 +1,178 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="void()" data-toggle="modal" data-target="#signing" ng-click="signing='signUp'">{{copy.landing.signUp}}</a></li>
+        <li class="left-border"><a href="void()" data-toggle="modal" data-target="#signing" ng-click="signing='signin'">{{copy.landing.login}}</a></li>
+        <!--<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>-->
+        <li class="left-border"><a href="#"><span  class="nav-btn">میهمان بپذیر</span></a></li>
+      </ul>
+      
+     
+      <a class="navbar-brand brand-color left-border" href="/" style="margin-top: -1px"><img src="../img/tatilan_logo.svg" style="width: 30px; height: auto; margin-left: 10px;" class="pull-right"><span style="font-size: 24px">تعطیلان</span></a>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="جستجو">
+        </div>
+
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<!-- Modal -->
+<div id="signing" class="modal fade signing" role="dialog" ng-controller="singinController">
+  <div class="modal-dialog modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content" ng-if="signing == 'signin'">
+      <div class="modal-header">
+        <!--<button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <div class="clearfix"></div>
+        <div class="btn btn-lg google-btn" style="border: 1px solid #ccc">Log in with Google</div>
+      </div>
+      <div class="modal-body">
+
+        <input type="text" name="email"  class="ltr input-full-width" placeholder="{{copy.landing.emailAddress}}"></input>
+
+        <input type="text" name="password"  class="ltr input-full-width" placeholder="{{copy.landing.password}}"></input>
+      <div>
+          <a href="#" ng-click="switchLogin('passwordReset')">{{copy.landing.forgotPassword}}</a>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px">{{copy.landing.login}}</button>
+ 
+      </div>
+      <div class="modal-footer">
+        <span>{{copy.landing.noUserAccount}}</span>
+        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="switchLogin('signUp')">{{copy.landing.signUp}}</button>
+      </div>
+    </div>
+
+    <!-- forgot Password -->
+    <div class="modal-content" ng-if="signing === 'passwordReset'">
+      
+      <div class="modal-body">
+        <h3>{{copy.landing.passwordResetLabel}}</h3>
+        <input type="text" name="email"  class="ltr input-full-width" placeholder="{{copy.landing.emailAddress}}"></input>
+
+         <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px">{{copy.landing.login}}</button>
+ 
+      </div>
+     
+      <div class="modal-footer">
+        <a href="#" ng-click="switchLogin('signin')">{{copy.landing.backtoLogin}}</a>
+        
+      </div>
+
+    </div>
+
+<!-- Sign Up -->
+
+    <div class="modal-content" ng-if="signing == 'signUp'">
+      <div class="modal-header">
+        <!--<button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <div class="clearfix"></div>
+        <div class="btn btn-lg google-btn" style="border: 1px solid #ccc">Sign up with Google</div>
+      </div>
+      <div class="modal-body">
+          <div>
+              <div class="col-lg-6" style="padding-left: 0; padding-right: 0">
+        <input type="text" name="lastName"  class=" input-full-width col-lg-6" placeholder="{{copy.landing.last}}"></input>
+        </div>
+          
+        <div class="col-lg-6" style="padding-right: 0;">
+        <input type="text" name="firstName"  class=" input-full-width " placeholder="{{copy.landing.first}}"></input>
+          </div>
+        
+        
+          
+</div>
+
+        
+        <input type="text" name="email"  class="ltr input-full-width" placeholder="{{copy.landing.emailAddress}}"></input>
+
+        <input type="text" name="password"  class="ltr input-full-width" placeholder="{{copy.landing.password}}"></input>
+
+
+        <input type="text" name="cellNumber"  class=" input-full-width ltr" placeholder="{{copy.landing.cellNumber}}"></input>
+      
+
+        <h5 style="margin-top: 0;">{{copy.landing.dob}}</h5>
+       <div class="btn-group" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{copy.landing.day}}
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+           <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{copy.landing.month}}
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      {{copy.landing.year}}
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="#">Dropdown link</a></li>
+      <li><a href="#">Dropdown link</a></li>
+    </ul>
+  </div>
+</div>
+<p style="margin-top: 15px">
+<a href="#">{{copy.landing.disclaimer}}</a>
+</p>
+
+      <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px">{{copy.landing.signUp}}</button>
+ 
+      </div>
+     
+      <div class="modal-footer">
+        <span>{{copy.landing.labelAlreadyMember}}</span>
+        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="switchLogin('signin')">{{copy.landing.login}}</button>
+      </div>
+
+     
+    </div>
+
+
+
+    </div>
+
+  </div>

@@ -1,0 +1,133 @@
+<h3>{{copy.registration.basicsTitle}}</h3>
+<p>{{copy.registration.basicsTitleDescription}}</p>
+<div class="top-border-gray top-margin-30">
+    
+    <h3>{{copy.details.roomType}}</h3>
+    <div class="row ">
+        <div class="col-sm-4">
+            <label for="network_name">{{copy.details.propertyType}}</label>
+
+                <select class="full-width" name="propertyType" ng-model="basics.propertyType">
+                    <option value="">انتخاب</option>
+                   <option value="house" ng-selected="home.propertyType == 'house'">{{copy.list.house}}</option>
+                   <option value="apartment" ng-selected="home.propertyType == 'apartment'">{{copy.list.appartment}}</option>
+                    <option value="studio" ng-selected="home.propertyType == 'studio'">{{copy.list.studio}}</option>
+                    <option value="hotel" ng-selected="home.propertyType == 'hotel'">{{copy.list.hotel}}</option>
+                    <option value="inn" ng-selected="home.propertyType == 'inn'">{{copy.list.inn}}</option>
+               </select>
+
+       
+            
+        </div>
+        <div class="col-sm-4">
+            <label for="network_name">{{copy.details.roomType}}</label>
+          
+               <select class="full-width" name="rentType" ng-model="basics.rentType">
+                   <option value="">انتخاب</option>
+                   <option value="room" ng-selected="home.rentType == 'room'">{{copy.registration.rooms}}</option>
+                   <option value="house" ng-selected="home.rentType == 'house'">{{copy.result.entireHome}}</option>
+               </select>
+
+
+        </div>
+        <div class="col-sm-3">
+            <label for="capacity">{{copy.details.accomodates}}</label> 
+               <select class="full-width" name="capacity" ng-model="basics.capacity" ng-options="num for num in [1, 2,3,4,5,6,7,8,9,10,11,12,13,14,15,'16+']">
+                  <option value="">ظرفیت</option> 
+               </select>
+        </div>
+    </div>
+    
+     
+    <div class="row top-border-gray top-margin-30" style="margin-right: 2px">
+       <h3>{{copy.registration.roomsAndBeds}}</h3> 
+          <div class="row ">
+        <div class="col-sm-3">
+            <label for="network_name">{{copy.registration.rooms}}</label>
+
+               <select class="full-width" name="rooms" ng-model="basics.rooms" ng-options="num for num in [1, 2,3,4,5,6,7,8,9,10]">
+                <option value="">انتخاب</option>
+                   
+               </select>
+
+       
+            
+        </div>
+        <div class="col-sm-3">
+            <label for="network_name">{{copy.registration.twoPersonBed}}</label>
+
+               <select class="full-width" name="fullBed" ng-model="basics.fullBed" ng-options="num for num in [1, 2,3,4,5,6,7,8,9,10]">
+                   <option value="">انتخاب</option>
+               </select>          
+        </div>
+        <div class="col-sm-3">
+            <label for="network_name">{{copy.registration.singleBed}}</label>
+
+               <select class="full-width" name="singleBed" ng-model="basics.singleBed" ng-options="num for num in [1, 2,3,4,5,6,7,8,9,10]">
+    <option value="">انتخاب</option>
+         
+               </select>        
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-3">
+            <label for="network_name">{{copy.registration.bathrooms}}</label>
+
+               <select class="full-width" name="bath" ng-model="basics.bath" ng-options="num for num in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]" >
+                   <option value="">انتخاب</option>
+                   
+               </select>             
+        </div>
+        <div class="col-sm-3">
+            <label for="restroom">{{copy.registration.restrooms}}</label>
+
+               <select class="full-width" name="restroom" ng-model="basics.restroom" ng-options="num for num in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]" >
+                   <option value="">انتخاب</option>
+                   
+               </select>             
+        </div>
+        <div class="col-sm-3">
+            <label for="mattress">{{copy.registration.additionalMattress}}</label>
+
+               <select class="full-width" name="mattress" ng-model="basics.mattress" ng-options="num for num in [1,2,3,4,5,6,7,8,9,10,11,12,13,14]" >
+                   <option value="">انتخاب</option>
+                   
+               </select>             
+        </div>
+        
+              
+              
+              
+        <div class="clearfix"></div>   
+         <div class="top-border-gray top-margin-30" style="padding: 0 22px;">    
+            <h3>{{copy.registration.houseManual}}</h3>
+            <p><i class="material-icons" style="position:relative; top: 5px">lock_outline</i> {{copy.registration.houseManualDescription}}</p>
+            <label for="home_manual">{{copy.registration.houseManual}}</label>
+            <textarea class="form-control" rows="5" ng-model="basics.homeInstruction" placeholder="{{copy.registration.houseManualGohs}}" name="home_manual"></textarea>
+            <div class="row top-margin-30">
+                <div class="col-sm-6">
+                    <label for="network_name">{{copy.registration.wifiName}}</label>
+                    <input type="text" ng-model="basics.wifiName" class="form-control full-width" name="network_name"/>
+                </div>
+                <div class="col-sm-6">
+                    <label for="network_name">{{copy.registration.wifiPassword}}</label>
+                    <input type="password" ng-model="basics.wifiPassword" class="form-control full-width" name="network_password"/>
+                </div>
+            </div>
+         </div> 
+        <div class="top-border-gray top-margin-30" style="padding-top: 25px;">
+          <a href="#/description">{{copy.registration.previous}}</a>
+          <button class="btn btn-primary pull-left btn-lg" style="margin-left: 30px" ng-click="$parent.submit(basics, 'basics', 'address')">
+               <span ng-if="!spinner.basics">{{copy.registration.next}}</span>
+               <div class="spinner spinner-property" ng-if="spinner.basics">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+          </button>      
+        </div>
+              
+              
+              
+        </div>
+    </div>
+</div>

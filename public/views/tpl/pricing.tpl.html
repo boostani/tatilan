@@ -1,0 +1,42 @@
+<h3>{{copy.registration.pricingTitle}}</h3>
+<p>{{copy.registration.pricingTitleDescription}}</p>
+<div class="top-margin-30 top-border-gray">
+    <h3>{{copy.registration.basePrice}}</h3>
+
+        
+        <div class="input-group col-sm-4">
+          <input type="text" class="form-control" placeholder="0,00" aria-describedby="basic-addon2" ng-model="price.basePrice" digit>
+          <span class="input-group-addon" style="border-right: none; border-left: 1px solid #ccc; color: #555">{{copy.registration.toman}}</span>
+        </div>
+        <!--<h4 class="brand-color" style="margin-top: 20px">{{copy.registration.suggestedPrice}} 120000 {{copy.registration.toman}}</h4> -->
+    
+    
+    <div class="top-margin-30 top-border-gray">
+        <h3>{{copy.registration.longerStayPricing}}</h3>
+        
+        <label for="">{{copy.details.weeklyDiscount}}</label>
+        <div class="input-group col-sm-4">
+          <input type="text" class="form-control" placeholder="00" aria-describedby="basic-addon2" ng-model="price.weeklyDiscount" digit>
+          <span class="input-group-addon" style="border-right: none; border-left: 1px solid #ccc; color: #555">{{copy.registration.percent}}</span>
+        </div>
+        
+        <label for="">{{copy.details.monthlyDiscount}}</label>
+        <div class="input-group col-sm-4">
+          <input type="text" class="form-control" placeholder="00"  aria-describedby="basic-addon2" ng-model="price.monthlyDiscount" digit>
+          <span class="input-group-addon" style="border-right: none; border-left: 1px solid #ccc; color: #555">{{copy.registration.percent}}</span>
+        </div> 
+    </div>
+
+    
+</div>
+ <div class="top-margin-30 top-border-gray" style="padding-top: 25px">
+        <a href="#/photos">{{copy.registration.previous}}</a>
+            <button class="btn btn-primary pull-left btn-lg" ng-click="$parent.submit(price, 'pricing','booking')">
+               <span ng-if="!spinner.pricing">{{copy.registration.next}}</span>
+               <div class="spinner spinner-property" ng-if="spinner.pricing">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </button>      
+        </div>

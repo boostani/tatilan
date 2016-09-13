@@ -1,0 +1,70 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+<link type="text/css" rel="stylesheet" media="all" href="../css/landing.css">
+<link rel="stylesheet" type="text/css" href="/css/marketing.css">
+</head>
+<body ng-app="tatilan" ng-controller="jobs" id="landing" ng-cloak>
+<div class="main-parent" >
+
+
+<% include partials/nav.ejs %>
+<div class="howToRentHeader">
+	<div class="clearfix"></div>
+	<h2 class="white center" style="padding-top: 40px">{{copy.landing.howToRentTitle}}</h2>
+</div>
+    <div class="page-container" style="padding: 40px 55px; margin-top: 10px;" >
+    	
+    	<div class="col-sm-4">
+    		<div class="step">۱</div>
+    		<h3>خونتو به سادگی میگذاری تو سایت تعطیلان</h3>
+    		<h5 class="top-margin-20">
+فرقی نمیکنه ویلا، آپارتمان یا اتاق باشه.
+فقط باید مبله و تمیز باشه. ما خونتو به کلی مسافر که قصد سفر به منطقه شما رو دارن نشون میدیم و برات تبلیغ میکنیم.</h5>
+    	</div>
+    	<div class="col-sm-4">
+    	<div class="step">۲</div>
+    		<h3>قیمت و روزها رو میتونی تو سایت تعیین کنی.
+</h3>
+    		<h5 class="top-margin-20">
+میتونی خونتو فقط برای این آخر هفته یا
+برای همیشه تو سایت قرار بدی.
+قیمت رو هم هر موقع لازم بود تغییر میدی.
+تا پولی در نیاری، سرویس تعطیلان هیچ
+هرینه ای برات نداره.</h5>
+    	</div>
+
+    	<div class="col-sm-4">
+    	<div class="step">۳</div>
+    		<h3>   مشتریها رو میتونی تایید کنی 
+و جا رو بهشون تحویل میدی.
+</h3>
+    		<h5 class="top-margin-20">
+درخواستو از طریق تلفن همراه یا سایت
+دریافت میکنی. 
+قرار مدارها رو تو تعطیلان میذاری.
+آخر سر، پول مستقیم میره تو حسابت.</h5>
+    	</div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="center top-margin-30" style="padding-bottom: 50px; padding-top: 30px;">
+    	<a ng-click="selectModal('signUp')" data-target="#signing" data-toggle="modal" href="#/signup?redirect=property" class="btn btn-primary btn-lg ">استارت کارو همینجا بزن</a>
+    </div>
+
+    
+    <% include partials/footer.ejs%>
+    
+</div>
+    
+    <script>
+        window.user = <%- JSON.stringify(user) %>;
+    </script>
+
+    <% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+   
+    <script type="text/javascript" src="/js/controllers/jobs.client.controller.js"></script>
+
+ <script type="text/javascript" src="/js/controllers/signing.client.controller.js"></script>
+   
+</body>
+</html>

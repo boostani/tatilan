@@ -1,0 +1,144 @@
+<!-- Modal -->
+
+<script type="text/ng-template" id="signing.tpl.html" class="modal fade signing"  control-modal>
+  <div class="modal-dialog modal-md">
+
+    <!-- Modal content-->
+    <div class="modal-content" ng-if="signing == 'signin'">
+      <!--<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+        <div class="clearfix"></div>
+        <div class="btn btn-lg google-btn" style="border: 1px solid #ccc">Log in with Google</div> 
+      </div>-->
+      <div class="modal-body">
+         <h3>{{copy.landing.loginTitle}}</h3> 
+        <div class="top-margin-20 red" ng-if="loginError!=''">{{loginError}}</div>
+<form action="/signin" method="post">
+        <input type="text" name="username"  class="ltr input-full-width top-margin-20" ng-model="signinObj.username" placeholder="{{copy.landing.emailAddress}}"></input>
+
+        <input type="password" name="password"  class="ltr input-full-width" ng-model="signinObj.password" placeholder="{{copy.landing.password}}"></input>
+      <div>
+          <a href="#" ng-click="switchLogin('passwordReset')">{{copy.landing.forgotPassword}}</a>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px" ng-click="signin()">{{copy.landing.login}}</button>
+        </form>
+ 
+      </div>
+      <div class="modal-footer">
+        <span>{{copy.landing.noUserAccount}}</span>
+        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="switchLogin('signUp')">{{copy.landing.signUp}}</button>
+      </div>
+    </div>
+
+    <!-- forgot Password -->
+    <div class="modal-content" ng-if="signing === 'passwordReset'">
+      
+      <div class="modal-body">
+        <h3>{{copy.landing.passwordResetLabel}}</h3>
+        <input type="text" name="email"  class="ltr input-full-width" placeholder="{{copy.landing.emailAddress}}"></input>
+
+         <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px">{{copy.landing.login}}</button>
+ 
+      </div>
+     
+      <div class="modal-footer">
+        <a href="#" ng-click="switchLogin('signin')">{{copy.landing.backtoLogin}}</a>
+        
+      </div>
+
+    </div>
+
+<!-- Sign Up -->
+
+    <div class="modal-content" >
+     <!--<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+        <div class="clearfix"></div>
+        <div class="btn btn-lg google-btn" style="border: 1px solid #ccc">Sign up with Google</div>
+         
+      </div>-->
+      <div class="modal-body">
+          <h3 class="" style="margin: 0">{{copy.landing.signupTitle}}</h3>
+          
+          <div class="top-margin-20 red" ng-if="signupError!=''">{{signupError}}</div>
+          <form>
+          <div class="top-margin-20">
+              <div class="col-lg-6" style="padding-left: 0; padding-right: 0">
+        <input type="text" name="lastName"  class=" input-full-width col-lg-6" ng-model="user.firstName" placeholder="{{copy.landing.last}}"></input>
+        </div>
+          
+        <div class="col-lg-6" style="padding-right: 0;">
+        <input type="text" name="firstName"  class=" input-full-width " ng-model="user.lastName" placeholder="{{copy.landing.first}}"></input>
+        </div>
+        
+        
+          
+</div>
+
+        
+        <input type="text" name="username"  class="ltr input-full-width" ng-model="user.username" placeholder="{{copy.landing.emailAddress}}"></input>
+
+        <input type="password" name="password"  class="ltr input-full-width" ng-model="user.password" placeholder="{{copy.landing.password}}"></input>
+
+        <div class="input-group full-width">
+            <div class="col-sm-3 pull-left" style="margin-left: 0; padding: 0">
+                <input type="text" class="input-full-width ltr" placeholder="{{copy.landing.areaCode}}" ng-model="user.areaCode">
+            </div>
+            <div class="col-sm-6 pull-left">
+                <input type="text" class="input-full-width ltr" name="cellNumber"  class=" ltr" ng-model="user.phoneNumber" placeholder="{{copy.landing.cellNumber}}"></input>
+            </div>
+          
+        </div>
+        
+      
+
+        <h5 style="margin-top: 0;">{{copy.landing.dob}}</h5>
+       <div class="btn-group" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+            <select style="padding: 0" name="day" ng-model="dob.day">
+              <option>{{copy.landing.day}}</option>
+              <% for(var i=1; i<32; i++) {%>
+                   <option value="<%= i %>"><%= i %></option>
+                <% } %>
+
+            </select>
+          </div>
+          <div class="btn-group" role="group">
+            <select style="padding: 0" name="month" ng-model="dob.month">
+                <option>{{copy.landing.month}}</option>
+                 <% for(var i=1; i<13; i++) {%>
+                   <option value="<%= i %>"><%= i %></option>
+                <% } %>
+            </select>
+        </div>
+
+  <div class="btn-group" role="group">
+    <select style="padding: 0" name="year" ng-model="dob.year">
+        <option>{{copy.landing.year}}</option>
+        <% for(var i=1380; i>1320; i--) {%>
+           <option value="<%= i %>"><%= i %></option>
+        <% } %>
+    </select>
+  </div>
+</div>
+<p style="margin-top: 15px">
+<a href="#">{{copy.landing.disclaimer}}</a>
+</p>
+
+      <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px" ng-click="signup()">{{copy.landing.signUp}}</button>
+ </form>
+      </div>
+     
+      <div class="modal-footer">
+        <span>{{copy.landing.labelAlreadyMember}}</span>
+        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="switchLogin('signin')">{{copy.landing.login}}</button>
+      </div>
+
+     
+    </div>
+
+
+
+    </div>
+
+  </script>

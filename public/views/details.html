@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html ng-app="tatilan" lang="fa" xml:lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Tatilan</title>
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap/bootstrap.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap/bootstrap-theme.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap-overrides.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/common.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/carousel.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/details.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body ng-controller="details" id="details">
+<div class="main-parent">
+<ng-include src="'navigation_partial.html'" style="position: relative; z-index: 1150"></ng-include>
+    
+<div id="home-cover">
+    <div style="background-image:url(https://a0.muscache.com/im/pictures/28827067/ce3f46c3_original.jpg?aki_policy=xx_large);" class="cover-img"></div>
+    
+</div>
+<div class="page-container">
+    <div class="row relative" >
+    
+          <div class="col-sm-4 booking-container desktop-abs desktop-left">
+            <div class="row unit-price">
+                <div class="pull-left ltr h5">{{copy.details.unit}}</div>
+                <div class="pull-right h4">150 {{copy.details.price}}</div>
+            </div>
+            <div style="padding: 10px 5px">
+              <table width="100%">
+                  <tr>
+                      <td width="40%">
+                     
+                        <p>{{copy.landing.checkin}}</p>
+                        <input type="text" class="form-control"  name="checkin" placeholder="{{copy.landing.checkin}}"/>
+                   
+                </td>
+                <td width="40%" style="padding-right: 8px">
+                    
+
+                        <p>{{copy.landing.checkout}}</p>
+                        <input type="text" class="form-control"  name="checkout" placeholder="{{copy.landing.checkout}}"/>
+
+                   
+                </td>
+                
+                <td width="20%" style="padding-right: 8px">
+                    <p>{{copy.landing.guests}}</p>
+                    <div class="input-group-btn"> 
+               <button aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button" style="margin-left: -2px">1
+                   <span class="caret" style="margin-right: 5px"></span> </button> 
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">{{copy.result.guests1}}</a></li>
+                  <li><a href="#">{{copy.result.guests2}}</a></li>
+                </ul>
+           </div>
+                </td>
+                </tr>
+              </table>
+              <table width="100%" style="margin-top: 20px;">
+                  <tr>
+                    <td class="padding-8"><span>Test</span><span class="pull-left">150</span></td>
+                  </tr>
+                  <tr class="border-top">
+                    <td class="padding-8"><span>Test</span><span class="pull-left">150</span></td>
+                  </tr>
+                  <tr class="border-top">
+                    <td class="padding-8"><span>Test</span><span class="pull-left">150</span></td>
+                  </tr>
+                  <tr>
+                  <td style="padding: 30px 8px">
+                    <button class="btn btn-primary btn-lg" style="width: 100%">{{copy.details.book}}</button>
+                  </td>
+                      </tr>
+              
+              </table>
+              
+            </div>
+          </div>
+        
+        <!-- listing details -->
+        <div class="col-sm-8 desktop-right">
+            <div class="row">
+                <table width="100%" >
+                    <tr>
+                        <td width="25%" class="center" style="padding: 15px 2px">
+                            <div class="media-photo media-round">
+                                <img src="https://a0.muscache.com/im/users/2058874/profile_pic/1371750162/original.jpg?aki_policy=profile_medium" alt="Juan from Berkeley">
+                            </div>
+                            <h4 class="center">
+                              زهرا
+                            </h4>
+                        </td>
+                        <td width="75%" style="padding: 15px " class="align-top">
+                            <h3 style="margin-top: 10px; margin-bottom: 5px">یک منزل تمیز و زیبا</h3>
+                            <span>مصطفی آباد، ساری</span>
+                            <table width="100%">
+                                <tr>
+                                    <td width="25%" class="property-details">
+                                      <i class="material-icons">home</i>  
+                                      <div class="center"> ویلای کامل یا آپارتمان</div>
+                                    </td>
+                                    <td width="25%" class="property-details">
+                                        <i class="material-icons">group</i>
+                                      <div> تا ۱۲ میهمان</div>
+                                    </td>
+                                    <td width="25%" class="property-details">
+                                        <i class="material-icons">store</i>  
+                                        <div>۴ اتاق خواب</div>
+                                    </td>
+                                    <td width="25%" class="property-details">
+                                        <i class="material-icons">insert_drive_file</i>  
+                                       <div>۵ تخت خواب</div>
+                                    </td>
+                                    
+         
+                                    
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- supper details -->
+    <div class="property-detail-container">
+        <div class="page-container">
+    <div class="row">
+        <div class="col-sm-8 pull-right">
+            <div style="padding: 5px 15px">
+                <h4>{{copy.details.aboutListing}}</h4>
+                <p>
+                    
+
+رستوران پنج ستاره الماس واقع در بلوار میرداماد با فضایی لوکس آماده پذیرایی به شما تخفیفانی های عزیز می باشد. تخفیفان این دوره به دلیل افتتاحیه رستوران الماس با ۵۰ درصد تخفیف استثنایی پیشنهاد ما به شما تخفیفانی های عزیز می باشد.
+
+                </p>
+            </div>
+            <div class="post-row">
+                <div class="col-sm-4 text-muted">
+                    {{copy.details.aboutSpace}}
+                </div>
+                <div class="col-sm-4">
+                    <div><span class="key">{{copy.details.accomodates}}</span><span class="value">8</span></div>
+                    <div><span class="key">{{copy.details.bedrooms}}</span><span class="value">8</span></div>
+                    <div><span class="key">{{copy.details.bathroom}}</span><span class="value">8</span></div>
+                    <div><span class="key">{{copy.details.bedType}}</span><span class="value">8</span></div>
+                    <div><span class="key">{{copy.details.beds}}</span><span class="value">8</span></div>
+                </div>
+                <div class="col-sm-4">
+                    <div><span class="key">{{copy.landing.checkin}}</span><span class="value">2:00</span></div>
+                    <div><span class="key">{{copy.landing.checkout}}</span><span class="value">11:00</span></div>
+                    <div><span class="key">{{copy.details.propertyType}}</span><span class="value">8</span></div>
+                    <div><span class="key">{{copy.details.roomType}}</span><span class="value">8</span></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <!-- amenities -->
+            <div class="post-row">
+                <div class="col-sm-4 text-muted">
+                    {{copy.details.amenities}}
+                </div>
+                <div class="col-sm-4">
+                    <div><span class="value">{{copy.details.kitchen}}</span></div>
+                    <div><span class="value">{{copy.details.wirelessInternet}}</span></div>
+                    <div><span class="value">{{copy.details.shampoo}}</span></div>
+                    <div><span class="value">{{copy.details.heating}}</span></div>
+                    <div><span class="value">{{copy.details.airCondition}}</span></div>
+                    <div><span class="value">{{copy.details.parking}}</span></div>
+                    <div><span class="value">{{copy.details.cableTv}}</span></div>
+                    
+                </div>
+               
+                <div class="col-sm-4">
+           
+                    <div><span class="value">{{copy.details.suitableForEvent}}</span></div>
+                    <div><span class="value">{{copy.details.smokingAllowed}}</span></div>
+                    <div><span class="value">{{copy.details.IndoorFireplace}}</span></div>
+                    <div><span class="value">{{copy.details.pool}}</span></div>
+                    <div><span class="value">{{copy.details.hotTub}}</span></div>
+                    <div><span class="value">{{copy.details.fullCheckIn}}</span></div>
+                    <div><span class="value">{{copy.details.hangers}}</span></div>
+                    <div><span class="value">{{copy.details.iron}}</span></div>
+                    <div><span class="value">{{copy.details.hairDryer}}</span></div>
+   
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <!-- price -->
+            <div class="post-row">
+                <div class="col-sm-4 text-muted">
+                    {{copy.details.prices}}
+                </div>
+                <div class="col-sm-4">
+                    <div><span class="key">{{copy.details.cleaningFee}}</span><span class="value">8</span></div>
+                    <div><span class="key">{{copy.details.securityDeposit}}</span><span class="value">8</span></div>
+                    <div><span class="key">{{copy.details.weeklyDiscount}}</span><span class="value">8</span></div>
+                    
+                </div>
+                <div class="col-sm-4">
+                    <div><span class="key">{{copy.details.monthlyDiscount}}</span><span class="value">2:00</span></div>
+                    <div><span class="key">{{copy.details.cancellation}}</span><span class="value">11:00</span></div>
+                   
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            
+            <!-- Description -->
+            <div class="post-row">
+                <div class="col-sm-4">
+                    <span class="text-muted">{{copy.details.details}}</span>
+                </div>
+                <div class="coll-sm-8">
+                    <div style="display: table">
+   
+                    <span class="bold">{{copy.details.theSpace}}</span>
+                    <p>
+                        رستوران پنج ستاره الماس واقع در بلوار میرداماد با فضایی لوکس آماده پذیرایی به شما تخفیفانی های عزیز می باشد. تخفیفان این دوره به دلیل افتتاحیه رستوران الماس با ۵۰ درصد تخفیف استثنایی پیشنهاد ما به شما تخفیفانی های عزیز می باشد.
+
+                    </p>
+                <span class="bold">{{copy.details.guestAccess}}</span>
+                    <p>
+                        رستوران پنج ستاره الماس واقع در بلوار میرداماد با فضایی لوکس آماده پذیرایی به شما تخفیفانی های عزیز می باشد. تخفیفان این دوره به دلیل افتتاحیه رستوران الماس با ۵۰ درصد تخفیف استثنایی پیشنهاد ما به شما تخفیفانی های عزیز می باشد.
+
+                    </p>
+                    
+                    <span class="bold">{{copy.details.neighborhood}}</span>
+                    <p>
+                        رستوران پنج ستاره الماس واقع در بلوار میرداماد با فضایی لوکس آماده پذیرایی به شما تخفیفانی های عزیز می باشد. تخفیفان این دوره به دلیل افتتاحیه رستوران الماس با ۵۰ درصد تخفیف استثنایی پیشنهاد ما به شما تخفیفانی های عزیز می باشد.
+
+                    </p>
+                    <span class="bold">{{copy.details.gettingAround}}</span>
+                    <p>
+                        رستوران پنج ستاره الماس واقع در بلوار میرداماد با فضایی لوکس آماده پذیرایی به شما تخفیفانی های عزیز می باشد. تخفیفان این دوره به دلیل افتتاحیه رستوران الماس با ۵۰ درصد تخفیف استثنایی پیشنهاد ما به شما تخفیفانی های عزیز می باشد.
+
+                    </p>
+                    <span class="value">{{copy.details.otherThings}}</span>
+                    <p>
+                        رستوران پنج ستاره الماس واقع در بلوار میرداماد با فضایی لوکس آماده پذیرایی به شما تخفیفانی های عزیز می باشد. تخفیفان این دوره به دلیل افتتاحیه رستوران الماس با ۵۰ درصد تخفیف استثنایی پیشنهاد ما به شما تخفیفانی های عزیز می باشد.
+
+                    </p>
+                    
+                    
+                </div>
+                
+                </div>
+                <div class="clearfix" style="height: 40px"></div>
+                
+            </div>
+                
+                
+                
+        
+        
+        </div>
+
+    </div>
+            </div>
+    </div>
+    
+    
+     <div class="owner-detail-container top-border-gray">
+        <div class="page-container" >
+            <div class="col-sm-8">
+            <h4 style="margin-top: 30px">{{copy.details.yourHost}}</h4>
+            <!-- price -->
+            <div class="post-row">
+                <div class="col-sm-4 center">
+                    <div class="media-photo media-round">
+                                <img src="https://a0.muscache.com/im/users/2058874/profile_pic/1371750162/original.jpg?aki_policy=profile_medium" alt="Juan from Berkeley">
+                            </div>
+                          
+                </div>
+                <div class="col-sm-8" style="display: table">
+                    <span class="زخمی">زهرا</span>
+                    <p>
+                        رستوران پنج ستاره الماس واقع در بلوار میرداماد با فضایی لوکس آماده پذیرایی به شما تخفیفانی های عزیز می باشد. تخفیفان این دوره به دلیل افتتاحیه رستوران الماس با ۵۰ درصد تخفیف استثنایی پیشنهاد ما به شما تخفیفانی های عزیز می باشد.
+
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div class="clearfix"></div>
+         </div>
+    </div>
+    
+
+    
+        
+<ng-include src="'footer.html'" style=""></ng-include>
+    
+</div>
+    
+
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../lib/angular/angular.js"></script>
+<script type="text/javascript" src="../lib/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="../lib/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="../lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.0.js"></script>
+<script type="text/javascript" src="../lib/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="../lib/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="../js/carousel.js"></script>
+<script type="text/javascript" src="../lib/sticky/sticky.min.js"></script>
+<script type="text/javascript" src="../js/directivs/persian.date.filter.js"></script>
+<script type="text/javascript" src="../js/directivs/persian.date.tpl.js"></script>
+    
+<script type="text/javascript" src="../js/app.js"></script>
+
+<script type="text/javascript" src="../js/copy.js"></script>
+   
+<script type="text/javascript" src="../js/controllers/details.client.controller.js"></script>
+     <script type="text/javascript" src="../js/controllers/signing.client.controller.js"></script>
+</body>
+</html>

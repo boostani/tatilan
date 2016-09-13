@@ -1,0 +1,43 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+<link type="text/css" rel="stylesheet" media="all" href="../css/search-result.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/registrationSteps.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/internal.css">
+    <link type="text/css" rel="../lib/angular-ui-bootstrap/src/datepicker/datepicker.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body ng-app="tatilan" ng-controller="internal" id="internal" ng-style="style()" resize ng-cloak>
+<div class="main-parent">
+    <% include partials/nav.ejs %>
+    <div class="sub-nav" style="padding: 0">
+        <ul class="page-container navigation-parent">
+        	<% if(user.hasProperty){%>
+            	<% /* <li ng-class="{selected:$state.includes('sales')}"><a href="#/sales">{{copy.internal.stats}}</a></li>
+				<li><a href="#/inbox">{{copy.internal.inbox}}</a></li> */ %>
+				<li ng-class="{selected:$state.includes('listings')}"><a href="#/listings">{{copy.internal.yourListings}}</a></li>
+	        <%} %>
+            <% /* <li ng-class="{selected:$state.includes('trips')}"><a href="#/trips">{{copy.internal.yourTrips}}</a></li> */ %>
+            <li ng-class="{selected:$state.includes('profile')}"><a href="#/profile">{{copy.internal.profile}}</a></li>
+        </ul>
+    </div>
+    <div ui-view style="padding: 30px 0px"></div>
+    <script>
+
+        window.user = <%- JSON.stringify(user) %>;
+        
+    </script>
+    
+<% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+    <script type="text/javascript" src="../js/routes/internal.routes.js"></script>   
+    <script type="text/javascript" src="../js/controllers/signing.client.controller.js"></script>
+     <script type="text/javascript" src="../js/controllers/internal.client.controller.js"></script>
+    <script type="text/javascript" src="../js/controllers/profile.client.controller.js"></script>
+    <script type="text/javascript" src="../js/addressLookup.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABNLj7JH5IAXMJndJ4bXA3G6oyF88g1V4&libraries=places&callback=initAutocomplete" async defer></script>
+   
+</body>
+
+
+</html>

@@ -1,0 +1,177 @@
+input[type="file"] {
+    display: inline-block;
+    width: 200px;
+}
+.property-calendar .btn {
+    border-color: #fff;   
+}
+.property-calendar>table {
+    outline: none;   
+}
+.btn-info {
+    background-color: #5bc0de !important;   
+}
+.property-calendar:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+.navbar-default {
+    border-radius: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    box-shadow: none;
+    height: 65px;
+    
+}
+
+.navbar .media-photo,
+.navbar .media-photo img{
+	
+	height: 27px;
+	width: 27px;
+	
+}
+
+.form-control,
+.dropdown-toggle{
+    border-radius: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px; 
+    color: #555;
+}
+.btn {
+    background: white none repeat scroll 0 0;
+    border-color: #c4c4c4;
+
+}
+
+.navbar-brand {
+    float: right;
+    font-size: 18px;
+    height: 65px;
+    line-height: 30px;
+    padding: 15px;
+}
+
+.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.container-fluid {
+    padding-right: 0;
+}
+.navbar-default .navbar-brand {
+    color: #26b2d4;
+}
+.navbar-right {
+    margin-right: 15px;
+    padding-top: 5px;
+}
+.navbar-form input {
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+}
+.navbar-form input:focus {
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: none;
+}
+.navbar-nav > li > a {
+    padding-top: 20px;
+}
+.dropdown-menu {
+    float: right;
+}
+.dropdown-toggle {
+    background-color: #fff;
+    background-image: none;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset
+}
+.caret {
+ border-top: 4px dashed #26b2d4;   
+}
+.radio input[type="radio"], 
+.radio-inline input[type="radio"], 
+.checkbox input[type="checkbox"], 
+.checkbox-inline input[type="checkbox"] {
+    margin-right: -20px;
+    position: absolute;
+}
+
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: right;
+}
+
+.pagination {
+    padding-right: 0;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    margin-left: -1px;
+}
+.pagination > li:last-child > a, .pagination > li:last-child > span,
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn{
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+    margin-right: -1px;
+}
+.btn-primary {
+    background-image: none;
+    background-color: #26b2d4;
+}
+.thumbnail {
+    padding: 0;
+}
+.thumbnail > img {
+    min-width: 100%;
+}
+
+.modal-content {
+    border-radius: 3px
+}
+.modal-header .close {
+    float: left;
+}
+
+.signing .modal-header,
+.signing .modal-body,
+.signing .modal-footer,
+.padded-modal{
+    padding: 25px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.nav .open > a.noBg, 
+.nav .open > a.noBg:hover, 
+.nav .open > a.noBg:focus
+{
+    background-color: transparent;
+}
+.dropdown-menu {
+  text-align: right;
+  border-radius: 2px;
+  padding-bottom: 12px;
+  padding-top: 10px;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    background-color: transparent;
+    background-image: none;
+    cursor: default;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+        float: right;
+    }
+}

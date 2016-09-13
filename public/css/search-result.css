@@ -1,0 +1,80 @@
+#map-search {
+   bottom: 0;
+   left: 0;
+   position: absolute;
+   right: 0;
+   top: 64px; 
+}
+.search-list {
+    background: #f7f7f7 none repeat scroll 0 0;
+    bottom: 0;
+    overflow-y: scroll;
+    position: fixed;
+    right: 0;
+    top: 65px;
+    width: 60%;  
+}
+
+.map {
+    top: 65px;
+    display: block;
+    width: 40%;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    width: 40%;
+}
+.search-list .filters {
+    background-color: #fff;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-bottom: 10px;
+    position: static;
+    left: 40%;
+    top: 65px;
+    z-index: 11;
+}
+.panel-body {
+    display: block;
+}
+.panel-body + .panel-body::before {
+   border-color: rgba(220, 224, 224, 0.5);
+    border-top: 1px solid rgba(220, 224, 224, 0.5);
+    content: "";
+    height: 1px;
+    left: 20px;
+    position: absolute;
+    right: 20px;
+    top: -1px;  
+}
+
+
+
+#result-parent {
+    padding: 35px 20px 20px;
+}
+
+.listing-img {
+    overflow: hidden;
+    position: relative;
+}
+.img-responsive-height {
+    height: auto;
+    width: 100%;
+}
+.row-space-2 {
+    margin-bottom: 12.5px;
+}
+
+
+
+.card-profile-picture-offset {
+    margin-bottom: -40px;
+    position: relative;
+    top: -40px;
+    left: 25px;
+}
+#result-footer {
+ padding: 30px 40px;   
+}

@@ -1,0 +1,228 @@
+<div class="panel">
+    <div class="panel-header">{{copy.internal.changeProfilePicture}}
+        <div class="center">
+        <img src="{{profilePic}}" style="width: 110px; height= 110px "  class="media-photo media-round" />
+        <div class="clearfix top-margin-20"></div>
+        <div class="white-box relative" style="padding-right: 10px; display: inline-block">
+
+        <div class="spinner file-overlay" ng-if="fileOverlay">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+        <input type="file" class="inline" id="fileSelector" file-model="myFile"/>
+            <div class="drop-box  btn btn-large btn-frame file-upload inline" ng-class="{'disabled': !myFile}" ng-click="uploadFile()"><i class="material-icons">cloud_upload</i> <span>{{copy.registration.uploadPhoto}}</span>
+            </div>
+    </div>
+
+    <div class="clearfix top-margin-20"></div>
+   </div>
+  </div>
+    
+</div>
+<div class="panel">
+    <div class="panel-header">{{copy.internal.required}}</div>
+    <div style="padding: 20px 25px;">
+        <div class="row">
+        <div class="col-sm-3 left-align"><label for="firstName">{{copy.landing.first}}</label></div>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="firstName" ng-model="profile.firstName" required/></div>
+        </div>
+        <div class="row">
+        <div class="col-sm-3 left-align"><label for="firstName">{{copy.landing.last}}</label></div>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" name="firstName" ng-model="profile.lastName" required/>
+            <div class="text-muted top-margin-10">{{copy.internal.nameDetails}}</div>    
+        </div>
+        </div>
+
+        <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label for="">{{copy.internal.gender}}</label></div>
+            <div class="col-sm-9">
+                <select ng-model="profile.gender">
+                    <option value="Male">{{copy.internal.male}}</option>
+                    <option value="Female">{{copy.internal.female}}</option>
+                    <option value="Other">{{copy.internal.other}}</option>
+                </select>
+                <div class="text-muted top-margin-10">{{copy.internal.nonSharing}}</div>
+            </div>
+        </div>
+
+        
+        <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label>{{copy.internal.dob}} </label></div>
+            <div class="col-sm-9">
+                <select ng-model="profile.dob.yr" ng-options="num for num in years">
+                    <option>{{copy.internal.year}}</option>
+                    <option>{{copy.internal.female}}</option>
+                    <option>{{copy.internal.other}}</option>
+                </select>
+                <select ng-model="profile.dob.mon" ng-options="num for num in [1, 2,3,4,5,6,7,8,9,10,11,12]">
+
+                </select>
+                <select ng-model="profile.dob.day" ng-options="num for num in [1, 2,3,4,5,6,7,8,9,10,11,12,13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]">
+                    <option>{{copy.internal.day}}</option>
+                    <option>{{copy.internal.female}}</option>
+                    <option>{{copy.internal.other}}</option>
+                </select>
+                
+                <div class="text-muted top-margin-10">{{copy.internal.dobDetails}} {{copy.internal.nonSharing}}</div>
+            </div>
+        </div>
+        
+        
+        <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label>{{copy.internal.emailAddress}}</label></div>
+            <div class="col-sm-9">
+                <input type="text" class="form-control readonly" ng-model="profile.username" readonly/>
+                <div class="text-muted top-margin-10">{{copy.internal.emailAddressDetails}}</div>
+            </div>
+        </div>
+        
+        
+        <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label>{{copy.internal.phoneNumber}}</label></div>
+            <div class="col-sm-9">
+                <div ng-repeat="phone in profile.phones">
+                <input type="text" 
+                       class="form-control phone-view-field" 
+                       value="{{phone.areaCode}}-{{phone.phoneNumber}}" 
+                       readonly/>
+                    <span class="link brand-color pointer"  ng-if="!phone.verified"  data-toggle="modal" data-target="#newPhone"  style="margin-left: 10px" ng-click="openVerification($index)">{{copy.internal.notVerified}}</span>
+                    <span ng-if="profile.phones.length > 1">
+                        <i ng-click="removePhone($index)" class="material-icons remove-icon phone-delete-icon pointer">delete</i>
+                    </span>
+                </div>
+                <div class="col-sm-9 brand-color" data-toggle="modal" data-target="#newPhone" ng-click="addPhonePage = true"><i class="material-icons" style="position: relative; top: 8px; margin-right: -15px">add</i> {{copy.internal.addMore}}</div>
+                
+                <div id="newPhone" class="modal fade" role="dialog" control-modal>
+  
+                  <div class="modal-dialog modal-md">
+                    <!-- Modal content-->
+                   
+                    <div class="modal-content">
+                      <div class="modal-body padded-modal" ng-if="addPhonePage">
+                         <h3>{{copy.internal.addPhone}}</h3>
+                          <div>{{copy.internal.verifyPhoneInfo}}</div>
+                        <div class="red top-margin-20" ng-if="phoneError">{{copy.internal.verifyPhoneError}}</div>
+                      <div class="input-group full-width top-margin-30">
+                            <div class="col-sm-6 " style="padding-right: 0;">
+                                <input type="text" 
+                                       class="input-full-width ltr" 
+                                       name="cellNumber"  
+                                       class=" ltr" 
+                                       ng-model="newPhone.phoneNumber" 
+                                       ng-minlength="7" 
+                                       required 
+                                       placeholder="{{copy.landing.cellNumber}}"
+                                       ng-model-options="{ debounce: 950 }"
+                                       ng-change="checkPhoneNumber(newPhone)" 
+                                />
+                            </div>
+                            <div class="col-sm-3" style="margin-left: 60px; padding: 0">
+                                <input type="text" 
+                                       class="input-full-width ltr" 
+                                       name="areaCode"  
+                                       placeholder="{{copy.landing.areaCode}}" 
+                                       ng-model="newPhone.areaCode" 
+                                       ng-minlength="3" 
+                                       required >
+                            </div>
+                            
+                        </div>
+                        </div>
+                        <div class="modal-body padded-modal" ng-if="!addPhonePage">
+                         <h3>{{copy.internal.verifyPhone}}</h3>
+                         <div>{{copy.internal.verifyPhoneDetails}}</div>
+                            <div class="red top-margin-20" ng-if="verifyError">{{copy.internal.verifyCodeError}}</div>
+                            <div class="red top-margin-20" ng-if="verificationFailed">{{copy.internal.verificationFailed}}</div>
+                            <div class="input-group full-width top-margin-30">
+                                <input
+                                    class="input-full-width ltr" 
+                                    name="verificationCode"  
+                                    class=" ltr" 
+                                    ng-model="newPhone.verificationCode" 
+                                    />
+                            </div>
+                        </div>
+                        
+                        <div class="modal-footer padded-modal">
+                            <button class="btn btn-primary btn-lg full-width" 
+                                    ng-click="addPhone(newPhone)"
+                                    ng-if="addPhonePage"
+                                    ng-disabled="phoneError"
+                                    >{{copy.internal.addMore}}</button>
+                            <button class="btn btn-primary btn-lg full-width" 
+                                    ng-click="verifyPhone(newPhone.verificationCode)"
+                                    ng-if="!addPhonePage"
+                                    >{{copy.internal.send}}</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+         <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label>{{copy.internal.describeYourself}}</label></div>
+            <div class="col-sm-9">
+                <textarea class="form-control" placeholder="" ng-model="profile.description"></textarea>
+                <div class="text-muted top-margin-10">{{copy.internal.describeYourselfDetails}}</div>
+                
+            </div>
+        </div>
+        <div class="clearfix top-margin-30"></div>
+        
+        
+        
+        
+        </div>
+        
+        <div class="clearfix"></div>
+    </div>
+
+
+<div class="panel">
+    <div class="panel-header">{{copy.internal.optional}}</div>
+    <div style="padding: 20px 25px;">
+        
+        <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label>{{copy.internal.school}}</label></div>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="profile.school"/>
+            </div>
+        </div>
+        
+        <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label>{{copy.internal.work}}</label></div>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="profile.work"/>
+            </div>
+        </div>
+        
+        <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label>{{copy.internal.emergancyContact}}</label></div>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+        
+        <div class="row top-margin-20">
+            <div class="col-sm-3 left-align"><label>{{copy.internal.shippingAddress}}</label></div>
+            <div class="col-sm-9">
+                <input type="text" class="form-control"/>
+            </div>
+        </div>
+        
+        
+    </div> <!-- end parent -->
+</div>
+
+
+<div class="row top-margin-30" style="padding-right: 15px;">
+            
+                <button class="btn btn-large btn-primary" ng-click="updateProfile()">{{copy.internal.save}}</button>
+        
+ </div>

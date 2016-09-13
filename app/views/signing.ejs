@@ -1,0 +1,27 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+
+    <link type="text/css" rel="stylesheet" media="all" href="../css/details.css">
+
+</head>
+<body ng-app="tatilan"   id="signingPage" >
+<div class="main-parent">
+    <% include partials/nav.ejs%>
+    <div ng-controller="signingCtrl" style="padding-top: 40px">
+        <% include partials/signing.ejs%>
+    </div>
+    
+ <% include partials/footer.ejs %>
+    <script>
+        window.user = <%- JSON.stringify(user) %>;
+    </script>
+
+    <% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+    <script type="text/javascript" src="/js/controllers/nav.client.controller.js"></script>
+     <script type="text/javascript" src="/js/controllers/signing.client.controller.js"></script>
+   
+</body>
+
+
+</html>

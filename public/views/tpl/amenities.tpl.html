@@ -1,0 +1,60 @@
+<div ng-controller="amenities"><h3>{{copy.registration.amenitiesTitle}}</h3>
+<p>{{copy.registration.descriptionTitleDetails}}</p>
+<div class="top-border-gray top-margin-30">
+    <h3>{{copy.registration.commonAmenities}}</h3>
+    <ul class="row list">
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-false-value="false" ng-model="amenities.tv" class="left-margin-5"/><span class="right-margin-5">{{copy.details.tv}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.cableTv" class="left-margin-5"/><span class="right-margin-5">{{copy.details.cableTv}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.kitchen" class="left-margin-5"/><span class="right-margin-5">{{copy.details.kitchen}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.cookingTools" class="left-margin-5"/><span class="right-margin-5">{{copy.details.cookingTools}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.dishes" class="left-margin-5"/><span class="right-margin-5">{{copy.details.dishes}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.bedding" class="left-margin-5"/><span class="right-margin-5">{{copy.details.bedding}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.waterAirCondition" class="left-margin-5"/><span class="right-margin-5">{{copy.details.waterAirCondition}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.fan" class="left-margin-5"/><span class="right-margin-5">{{copy.details.fan}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.gasAirCondition" class="left-margin-5"/><span class="right-margin-5">{{copy.details.gasAirCondition}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.heatingSystem" class="left-margin-5"/><span class="right-margin-5">{{copy.details.heating}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.internet" class="left-margin-5"/><span class="right-margin-5">{{copy.details.wirelessInternet}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.allDayCheckIn" class="left-margin-5"/><span class="right-margin-5">{{copy.details.fullCheckIn}}</span></label></li>
+    </ul>
+    <div class="top-border-gray top-margin-30">
+    <h3>{{copy.registration.specialAmenities}}</h3>
+    <ul class="row list">
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.breakfast" class="left-margin-5"/><span class="right-margin-5">{{copy.details.breakfast}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.washer" class="left-margin-5"/><span class="right-margin-5">{{copy.details.washer}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.bbq" class="left-margin-5"/><span class="right-margin-5">{{copy.details.bbqPlace}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.shampoo" class="left-margin-5"/><span class="right-margin-5">{{copy.details.shampoo}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.blowDryer" class="left-margin-5"/><span class="right-margin-5">{{copy.details.hairDryer}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.sportEntertainment" class="left-margin-5"/><span class="right-margin-5">{{copy.details.sportEntertainment}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.hottub" class="left-margin-5"/><span class="right-margin-5">{{copy.details.hotTub}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.pool" class="left-margin-5"/><span class="right-margin-5">{{copy.details.pool}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.fireplace" class="left-margin-5"/><span class="right-margin-5">{{copy.details.IndoorFireplace}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.iron" class="left-margin-5"/><span class="right-margin-5">{{copy.details.iron}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.parking" class="left-margin-5"/><span class="right-margin-5">{{copy.details.parking}}</span></label></li>
+    </ul>
+    </div>
+    
+      <div class="top-border-gray top-margin-30">
+    <h3>{{copy.registration.specialFeatures}}</h3>
+    <ul class="row list">
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.goodForEvents" class="left-margin-5"/><span class="right-margin-5">{{copy.details.suitableForEvent}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.petAllowed" class="left-margin-5"/><span class="right-margin-5">{{copy.details.petAllowed}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.smockingAllowed" class="left-margin-5"/><span class="right-margin-5">{{copy.details.smokingAllowed}}</span></label></li>
+        <li><label> <input type="checkbox" ng-true-value="true" ng-false-value="false" ng-model="amenities.wheelchaireAccessible" class="left-margin-5"/><span class="right-margin-5">{{copy.details.wheelchairAccessible}}</span></label></li>
+       
+          </ul>
+    </div>
+    
+    <div class="top-margin-30 top-border-gray" style="padding-top: 25px;">
+        <a href="#/address">{{copy.registration.previous}}</a>
+            <button class="btn btn-primary pull-left btn-lg" ng-click="$parent.submit(amenities, 'amenities', 'photos')"><span ng-if="!spinner.amenities">{{copy.registration.next}}</span>
+               <div class="spinner spinner-property" ng-if="spinner.amenities">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+        
+        </button>      
+        </div>
+    
+</div>
+    </div>

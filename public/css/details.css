@@ -1,0 +1,68 @@
+#home-cover {
+    height: 402px;
+    position: relative;
+    transition: height 0.2s ease 0s;
+    width: 100%;
+}
+#home-cover .cover-img {
+    background-color: #f5f5f5;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+	cursor: pointer;
+    height: 100%;
+}
+.unit-price {
+   background: rgba(60, 63, 64, 0.9) none repeat scroll 0 0;
+    color: #fff;
+    height: 50px;
+    padding: 5px 15px;
+    position: absolute;
+    top: -50px;
+    width: 100%;
+    
+}
+.booking-container {
+    background-color: #fff;
+
+    border-style: solid;
+      border-width: 1px;
+      border-top-color: #fff;
+      border-left-color: #ccc;
+      border-right-color: #ccc;
+      border-bottom-color: #ccc;
+    margin-top: -1px;
+}
+.property-details {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.property-details i {
+    font-size: 2.5em;
+}
+.property-detail-container {
+    background-color: #fff;
+    border-top: 1px solid #e7e7e7;
+    padding-top: 30px;
+    margin-top: 20px;
+}
+.post-row {
+    border-top: 1px solid #e7e7e7;
+    margin-top: 15px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.ng-gallery-content .effect {
+    max-height: 60%;   
+}
+.pop-calendar {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    position: absolute;
+    z-index: 10;
+}
+.well-sm.checkOut {
+    right: 130px;   
+}

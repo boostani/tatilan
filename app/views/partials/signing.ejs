@@ -1,0 +1,290 @@
+<div id="signing" class="modal fade signing" role="dialog"  ng-controller="signingCtrl" control-modal>
+  
+  <div class="modal-dialog modal-md">
+    <!-- Modal content-->
+    <div class="modal-content" ng-if="$parent.signing == 'signin'">
+      <!--<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+        <div class="clearfix"></div>
+        <div class="btn btn-lg google-btn" style="border: 1px solid #ccc">Log in with Google</div> 
+      </div>-->
+      <div class="modal-body">
+         <h3>{{copy.landing.loginTitle}}</h3> 
+        <div class="top-margin-20 red" ng-if="loginError!=''">{{loginError}}</div>
+<form name="signinForm" >
+        <input type="email" name="username"  class="ltr input-full-width top-margin-20" ng-model="signinObj.username" ng-minlength="7" required placeholder="{{copy.landing.emailAddress}}" focus-me="usernameField" id="usernameField"></input>
+    
+        <input type="password" name="password"  class="ltr input-full-width" ng-model="signinObj.password" ng-minlength="6" required placeholder="{{copy.landing.password}}" ng-keyup="$event.keyCode == 13 && signin()"></input>
+      <div>
+          <a href="#" ng-click="selectModal('passwordReset')">{{copy.landing.forgotPassword}}</a>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px" ng-click="signin()">{{copy.landing.login}}</button>
+        </form>
+ 
+      </div>
+      <div class="modal-footer">
+        <span>{{copy.landing.noUserAccount}}</span>
+        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="selectModal('signUp')">{{copy.landing.signUp}}</button>
+      </div>
+    </div>
+
+<!-- forgot Password -->
+
+    <div class="modal-content" ng-if="$parent.signing === 'passwordReset'">
+      
+      <div class="modal-body">
+        <h3>{{copy.internal.passwordResetTitle}}</h3>
+        <div class="red top-margin-20" ng-if="forgotEmailError" style="margin-bottom: 20px">{{copy.internal.emailNotFound}}</div>
+        <input type="text" name="email"  class="ltr input-full-width"  ng-model="userEmail" required placeholder="{{copy.landing.emailAddress}}"/>
+        
+		
+         <button type="button" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 10px" ng-click="sendPassword(userEmail)">
+         	<span ng-if="!spinner.password">{{copy.internal.sendRequest}}</span>
+         	<div class="spinner" ng-if="spinner.password" style="margin-top: 3px">
+            	<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+         </button>
+ 
+      </div>
+     
+      <div class="modal-footer">
+        <a href="#" ng-click="selectModal('signin')">{{copy.landing.backtoLogin}}</a>
+        
+      </div>
+
+    </div>
+    
+<!-- Password Reset Request -->
+
+   <div class="modal-content padded-modal" ng-if="$parent.signing == 'passwordConfirmation'">
+   		<h2 class="center"><i class="material-icons green" style="font-size: 70px">check_circle</i></h2>
+        <h3 class="center">{{copy.internal.passwordResetInstructionTitle}}</h3>
+        <div class="input-group full-width  list center" style="margin-top: 30px">
+        	<h5>{{copy.internal.passwordResetInstructionDescription}}</h5>
+            <button class="btn top-margin-20" ng-click="sendPassword(resetEmail)">
+            	<span ng-if="!spinner.password">{{copy.internal.sendAgain}}</span>
+            	<div class="spinner blue" ng-if="spinner.password" style="margin-top: 3px">
+            	<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div> 
+            </button>
+            <div style="margin: 20px auto 30px;" class="center">
+            	<span class="brand-color pointer" ng-click="selectModal('signin')">{{copy.internal.backToLogin}}</span>
+            </div>
+        </div>
+       
+        
+        
+    </div>   
+    
+<!-- phone verification -->
+
+   <div class="modal-content padded-modal" ng-if="$parent.signing == 'confirmPhone'">
+        <h3>{{copy.internal.verifyPhone}}</h3>
+        <div>{{copy.internal.verifyPhoneDetails}}</div>
+        <div class="red top-margin-20" ng-if="verifyError">{{copy.internal.verifyCodeError}}</div>
+        <div class="red top-margin-20" ng-if="verificationFailed">{{copy.internal.verificationFailed}}</div>
+       <form name="form.verification">
+        <div class="input-group full-width top-margin-30">
+            
+        	<div style="margin-bottom: 10px">
+        		<span ng-if="codeSent">
+        			{{copy.landing.codeSent}}
+        		</span>
+        		<span 
+        			ng-if="!spinner.resendingCode"
+        			class="link brand-color"
+        			ng-click="resendCode()"
+        		>{{copy.landing.resendCode}}</span>
+        		<div class="spinner blue" ng-if="spinner.resendingCode" style="margin: inherit">
+		            <div class="bounce1"></div>
+		            <div class="bounce2"></div>
+		            <div class="bounce3"></div>
+		        </div>
+			</div>
+            <input
+                type="text"
+                class="input-full-width ltr" 
+                name="verificationCode"  
+                ng-model="verificationCode" 
+                required
+                digit/>
+                </div>
+        
+        <button class="btn btn-primary btn-lg full-width" 
+            ng-click="verifyPhone(verificationCode)"
+            ng-if="!addPhonePage"
+            ng-disabled="form.verification.$invalid"
+            >{{copy.landing.confirmPhoneButton}}</button>
+       </form>
+           
+    </div>
+    
+ <!-- Sign up confirmation -->
+
+   <div class="modal-content padded-modal" ng-if="$parent.signing == 'confirmation'">
+        <h2 class="center"><i class="material-icons green" style="font-size: 70px">check_circle</i></h2>
+        <h3 class="center">{{copy.internal.registrationConfirmation}}</h3>
+        <div class="input-group full-width  list center" style="margin-top: 30px">
+            <a class="btn" href="/in#/profile/edit" style="margin-left: 10px">{{copy.internal.completeProfile}}</a>
+      
+            <a class="btn" href="/property">{{copy.internal.addProperty}}</a>
+            <div style="margin: 20px auto 30px;">
+            	<a  href="/" ng-click="reloadPage()">{{copy.internal.backToHome}}</a>
+            </div>
+        </div>
+       
+        
+        
+    </div>   
+    
+
+
+<!-- Sign Up -->
+
+    <div class="modal-content" ng-if="$parent.signing == 'signUp'">
+    
+     <!--<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+        <div class="clearfix"></div>
+        <div class="btn btn-lg google-btn" style="border: 1px solid #ccc">Sign up with Google</div>
+         
+      </div>-->
+      <div class="modal-body">
+          <h3 class="" style="margin: 0">{{copy.landing.signupTitle}}</h3>
+          
+          <div class="top-margin-20 red" ng-if="signupError!=''">{{signupError}}</div>
+          <form name="form.registrationForm">
+          <div class="top-margin-20 ">
+              <div class="col-lg-6" style="padding-left: 0; padding-right: 0">
+        <input type="text" name="lastName"  class=" input-full-width col-lg-6" ng-model="user.lastName" ng-minlength="1" required placeholder="{{copy.landing.last}}" tabindex="102"/>
+        </div>
+          
+        <div class="col-lg-6" style="padding-right: 0;">
+        <input type="text" name="lastName"  class=" input-full-width " ng-model="user.firstName" ng-minlength="1" required placeholder="{{copy.landing.first}}" tabindex="101"/>
+        </div>
+        
+        
+          
+</div>
+
+        
+        <input 
+        	type="email" 
+        	name="username"  
+        	class="ltr input-full-width" 
+        	ng-model="user.username" 
+        	ng-minlength="1" 
+        	required 
+        	placeholder="{{copy.landing.emailAddress}}" 
+        	ng-model-options="{ debounce: 700 }" 
+        	ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/'   
+        	ng-change="emailIsUnique(user.username)"
+        	tabindex="103"/>
+        <div class="red" style="margin-bottom: 10px" ng-show="form.registrationForm.username.$error.pattern">ایمیل وارد شده درست نیست.</div>
+        <div class="red" style="margin-bottom: 10px" ng-show="form.registrationForm.username.$error.unique"> این ایمیل قبلا در سیستم ثبت شده</div>
+        <div class="input-group full-width">
+            <div class="col-sm-3 pull-left" style="margin-left: 0; padding: 0">
+                <input type="text" class="input-full-width ltr" name="areaCode"  placeholder="{{copy.landing.areaCode}}" ng-model="user.areaCode" ng-minlength="3" required ng-model-options="{ debounce: 1000 }" ng-pattern="/^[0-9]{1,6}$/" tabindex="104" digit>
+            </div>
+            <div class="col-sm-6 pull-left">
+                <input 
+                	type="text" 
+                	class="input-full-width ltr" 
+                	name="cellNumber"  
+                	ng-model="user.phoneNumber" 
+                	ng-pattern="/^[0-9]{1,9}$/"
+                	ng-model-options="{ debounce: 700 }" 
+                	ng-minlength="7" 
+                	required 
+                	placeholder="{{copy.landing.cellNumber}}"  
+                	tabindex="105" 
+                	ng-change="phoneIsUnique(user.areaCode, user.phoneNumber)"
+                	digit />
+            </div>
+	    </div>
+	    <div class="red" ng-show="form.registrationForm.areaCode.$error.pattern || form.registrationForm.cellNumber.$error.pattern" style="margin-bottom: 10px">تنها عدد لاتین باید برای شماره همراه وارد شود</div>
+	    <div class="red" ng-show="form.registrationForm.cellNumber.$error.unique" style="margin-bottom: 10px">این شماره همراه قبلا در سیستم ثبت شده</div>
+
+	    <div class="relative">
+	        <input 
+                   type="password" 
+                   name="password" 
+                   id="password" 
+                   class="ltr input-full-width" 
+                   ng-model="user.password" 
+                   ng-minlength="6" 
+                   ng-pattern="/^(?=.*[0-9])(?=.*[A-Z])[A-Za-z0-9@*#]{7,15}$/" 
+                   ng-model-options="{ debounce: 900 }" 
+                   required 
+                   placeholder="{{copy.landing.password}}" 
+                   tabindex="106"/>
+	        <label for="password" style="position: absolute; top: 2px; right: 10px; width: 200px; color: #565a5c">حداقل ۷ حرف بزرگ و کوچک + عدد</label>
+        </div>
+        
+        <div class="red" ng-show="form.registrationForm.password.$error.pattern" style="margin-bottom: 10px;">پسورد با دستورالعمل تطبیق ندارد.</div>
+      
+
+        <h5 style="margin-top: 0;">{{copy.landing.dob}}</h5>
+       <div class="btn-group" role="group" aria-label="...">
+       <div class="btn-group" role="group">
+	    <select style="padding: 0" name="year" ng-model="dob.year" required tabindex="109">
+	        <option>{{copy.landing.year}}</option>
+	        <% for(var i=1380; i>1320; i--) {%>
+	           <option value="<%= i %>"><%= i %></option>
+	        <% } %>
+	    </select>
+	  </div>
+          
+          <div class="btn-group" role="group">
+            <select style="padding: 0" name="month" ng-model="dob.month" required tabindex="108">
+                <option>{{copy.landing.month}}</option>
+                 <% for(var i=1; i<13; i++) {%>
+                   <option value="<%= i %>"><%= i %></option>
+                <% } %>
+            </select>
+        </div>
+		<div class="btn-group" role="group">
+            <select style="padding: 0" name="day" ng-model="dob.day" required tabindex="107">
+              <option>{{copy.landing.day}}</option>
+              <% for(var i=1; i<32; i++) {%>
+                   <option value="<%= i %>"><%= i %></option>
+                <% } %>
+
+            </select>
+          </div>
+  
+</div>
+<p style="margin-top: 15px">
+<a href="/terms">{{copy.landing.disclaimer}}</a>
+</p>
+	
+	<%#<buttn ng-click="selectModal('confirmation')" type="button">Change to phone</button> %>
+
+      <button type="button" class="btn btn-primary btn-lg" ng-disabled="form.registrationForm.$invalid" style="width: 100%; margin-top: 10px" ng-click="signup()">
+      	<span ng-if="!spinner.signup">{{copy.landing.signUp}}</span>
+      	<div class="spinner" ng-if="spinner.signup" style="margin-top: 4px">
+            <div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div> 
+      	
+      
+      </button>
+ </form>
+      </div>
+     
+      <div class="modal-footer">
+        <span>{{copy.landing.labelAlreadyMember}}</span>
+        <button type="button" class="btn btn-primary pull-left" data-dismiss="modal" ng-click="selectModal('signin')">{{copy.landing.login}}</button>
+      </div>
+
+     
+    </div>
+   </div>
+
+
+

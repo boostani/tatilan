@@ -1,0 +1,248 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+    <link type="text/css" rel="stylesheet" media="all" href="../css/search-result.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/registrationSteps.css">
+    <link type="text/css" rel="../lib/angular-ui-bootstrap/src/datepicker/datepicker.css">
+    <% //<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> %>
+</head>
+
+
+<body ng-app="tatilan" ng-controller="registration" id="registration" ng-style="style()" resize ng-cloak>
+
+
+    <% include partials/nav.ejs %>
+    
+    
+    
+     <script type="text/ng-template" id="onHold.html">
+        <div class="modal-content center">
+      <div class="modal-header" style=" height: 200px">
+        <button type="button" class="close" data-dismiss="modal"  ng-click="ok()">&times;</button>
+        <h2 class="">
+        	<i class="material-icons red" style="font-size: 70px">warning</i>
+        	<div class="top-margin-20">{{copy.registration.listingOnHold}}</div>
+        </h2>
+        
+      </div>
+        
+      <div class="modal-body">
+          
+        <p class="text-muted" style="padding: 5px 40px">{{copy.registration.onHoldDetails}}</p>
+        <div style="margin: 25px auto" class="center">
+           <button class="btn btn-frame" ng-click="ok()">{{copy.internal.backToHome}}</button>
+
+            <div class="clearfix"></div>
+        </div>
+      </div>
+
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="open.html">
+        <div class="modal-content">
+      <div class="modal-header center" style=" height: 200px" >
+        <button type="button" class="close" data-dismiss="modal" ng-click="ok()">&times;</button>
+        <h2 class="">
+        	<i class="material-icons green" style="font-size: 70px">check</i>
+        	<div class="top-margin-20">{{copy.registration.listingOpen}}</div>
+        </h2>
+        
+      </div>
+        
+      <div class="modal-body">
+          
+        <p class="text-muted" style="padding: 5px 40px">{{copy.registration.listingOpenDetails}}</p>
+        <div style="margin: 25px auto" class="center">
+           <button class="btn btn-frame" ng-click="ok()">{{copy.internal.backToHome}}</button>
+
+            <div class="clearfix"></div>
+        </div>
+      </div>
+
+    </div>
+</script>
+
+    
+    
+ <div id="confirmation" class="modal fade" role="dialog" style="z-index: 1050">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #8CDFF3; height: 220px">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+      </div>
+        
+      <div class="modal-body">
+          <ng-include src="'/views/tpl/result_partial.html'" id="confirmation-listing-view"></ng-include>
+        <h3 class="center">{{copy.registration.confirmationMessage}}</h3>
+        <p class="text-muted center" style="padding: 5px 40px">{{copy.registration.confirmationMessageDetails}}</p>
+        <div style="margin: 25px auto">
+            <div class="col-sm-6"><button class="btn pull-left btn-frame" style="width: 200px" data-dismiss="modal">{{copy.registration.goToCalendar}}</button></div> 
+            <div class="col-sm-6"><a class="btn btn-primary" style="width: 200px" href="/house/{{$parent.home.id}}">{{copy.registration.goToListing}}</a></div>  
+            <div class="clearfix"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>    
+
+<div id="incomplete" class="modal fade" role="dialog" style="z-index: 1150">
+
+   <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header center" style="background-color: #8CDFF3; height: 220px">
+        <button type="button" class="close" data-dismiss="modal" ng-click="changePage()">&times;</button>
+        <h2 class="">
+        	<i class="material-icons red" style="font-size: 70px">warning</i>
+        	<div class="top-margin-20">{{copy.registration.missingInfo}}</div>
+        </h2>
+        
+      </div>
+        
+      <div class="modal-body">
+          
+        <p class="text-muted" style="padding: 5px 40px">
+        	{{copy.registration.missingInfoDetails}} </p>
+        	<ul class="top-margin-20 list" style="padding: 5px 40px">
+        		<li ng-if="!$parent.home.title"><a href="property/{{$parent.home.id}}#/description"   ng-click="changePage('title')"  data-dismiss="modal">{{copy.registration.listingName}}</a></li>
+        		<li ng-if="!$parent.home.basePrice"><a href="/property/{{$parent.home.id}}#/pricing"   ng-click="changePage('pricing')" data-dismiss="modal" >{{copy.registration.basePrice}}</a></li>
+        		<li ng-if="!$parent.home.region"><a href="/property/{{$parent.home.id}}#/address" data-dismiss="modal" ng-click="location.reload()">{{copy.registration.missingAddress}}</a></li>
+        		<li ng-if="!$parent.home.propertyType || !localCopy.rentType "><a href="/property/{{$parent.home.id}}#/basics" data-dismiss="modal" ng-click="changePage('basics')">{{copy.registration.missingPropertyOrRentType}}</a></li>
+        		<li ng-if="$parent.changes.indexOf('photos') == -1"><a href="/property/{{$parent.home.id}}#/photos" data-dismiss="modal" ng-click="changePage('photos')">{{copy.registration.missingPhoto}}</a></li>
+        		
+        	</ul>
+			<p class="text-muted" style="padding: 5px 40px">
+        		{{copy.registration.missingEndingDescription}} 
+        	</p>
+       
+        <div style="margin: 25px auto" class="center">
+           <button class="btn btn-frame" style="width: 200px" data-dismiss="modal">{{copy.registration.goToCalendar}}</button>
+
+            <div class="clearfix"></div>
+        </div>
+      </div>
+       </div>
+    </div>
+    
+</div>
+    
+<div class="main-parent">
+
+<div class="sub-nav">
+	<span ng-if="!home.title">{{copy.internal.listingTitle}}</span>
+	<span ng-if="home.title">{{home.title}}</span>
+</div>
+<div class="position: relative" ng-style="fullHeight(122)">
+<div class="sideNav" >
+    <div class="nav-content">
+        <ul>
+            <li class="text-muted">{{copy.registration.listing}}</li>
+            <li class="h4 nav-item"  ng-class="{selected: $state.includes('description')}">
+                <a href="#/description">{{copy.registration.descriptions}} </a>
+                <i class="material-icons pull-left" ng-if="!$state.includes('description')">add</i>
+                <i class="material-icons pull-left" ng-if="$state.includes('description')">keyboard_arrow_left</i>
+            </li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('basic')}">
+                <a href="#/basics">{{copy.registration.basics}}</a>
+                <i class="material-icons pull-left" ng-if="!$state.includes('basic')">add</i>
+                <i class="material-icons pull-left" ng-if="$state.includes('basic')">keyboard_arrow_left</i>
+            </li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('address')}">
+                <a href="#/address">{{copy.registration.location}}</a>
+                <i class="material-icons pull-left" ng-if="!$state.includes('address')">add</i>
+                <i class="material-icons pull-left" ng-if="$state.includes('address')">keyboard_arrow_left</i>
+            </li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('amenities')}">
+                <a href="#/amenities">{{copy.details.amenities}}</a>
+                <i class="material-icons pull-left" ng-if="!$state.includes('amenities')">add</i>
+                <i class="material-icons pull-left" ng-if="$state.includes('amenities')">keyboard_arrow_left</i>
+            </li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('photos')}">
+                <a href="#/photos">{{copy.registration.photos}}</a>
+                <i class="material-icons pull-left" ng-if="!$state.includes('photos')">add</i>
+                <i class="material-icons pull-left" ng-if="$state.includes('photos')">keyboard_arrow_left</i>
+            </li>
+            <!--<li class="h4 nav-item">{{copy.registration.homeSafety}} <i class="material-icons pull-left">add</i></li>-->
+            <li class="text-muted">{{copy.registration.hosting}}</li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('pricing')}">
+                <a href="#/pricing">{{copy.registration.pricing}}</a>
+                <i class="material-icons pull-left" ng-if="!$state.includes('pricing')">add</i>
+                <i class="material-icons pull-left" ng-if="$state.includes('pricing')">keyboard_arrow_left</i>
+            </li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('booking')}">
+                <a href="#/booking">{{copy.registration.booking}}</a>
+                <i class="material-icons pull-left" ng-if="!$state.includes('booking')">add</i>
+                <i class="material-icons pull-left" ng-if="$state.includes('booking')">keyboard_arrow_left</i>
+            </li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('calendar')}">
+                <a href="#/calendar">{{copy.registration.calendar}}</a>
+                <i class="material-icons pull-left" ng-if="!$state.includes('calendar')">add</i>
+                <i class="material-icons pull-left" ng-if="$state.includes('calendar')">keyboard_arrow_left</i>
+            </li>
+            
+            
+        </ul>
+    </div>
+    <div class="step-count top-border-gray">
+        <h4 ng-if="!home.listingCompleted"><span class="brand-color">{{8-changes.length}}</span> {{copy.registration.stepsCount}}</h4>
+        <div ng-if="home.listingCompleted">
+        	<i class="material-icons green" ng-if="home.status == 'open'" style="position: relative; top: 6px; left: 6px">brightness_1</i>
+        	<i class="material-icons red" ng-if="home.status == 'on-hold'" style="position: relative; top: 6px; left: 6px">brightness_1</i>
+        	
+	        <select class="" name="capacity" ng-model="home.status" ng-change="changeStatus(home.status)" style="background-color: #ffffff">
+	            <option value="open">{{copy.registration.open}}</option> 
+	            <option value="on-hold">{{copy.registration.onHold}}</option>            
+	        </select> 
+        </div>
+        
+  
+    </div>
+</div>
+    
+<div class="registration-container" >
+    <div class="registration-background"></div>
+
+
+    <div class="registration-content">
+        <div ui-view></div>
+        <% //include partials/footer.ejs%>
+    </div>
+
+    
+</div>
+
+
+</div>
+    
+</div>
+    
+    <script>
+        window.user = <%- JSON.stringify(user) %>;
+        window.property = <%- JSON.stringify(property) %>;
+    </script>
+
+    <% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+    <script type="text/javascript" src="/js/directivs/google.autocomplete.js"></script>
+    <script type="text/javascript" src="../lib/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="../lib/moment-range/dist/moment-range.min.js"></script>
+    <script type="text/javascript" src="../js/routes/registration.routes.js"></script>
+   
+    <script type="text/javascript" src="/js/controllers/signing.client.controller.js"></script>
+    <script type="text/javascript" src="/js/controllers/listRegistration.client.controller.js"></script>
+    <script type="text/javascript" src="/js/controllers/calendar.client.controller.js"></script>
+    <script type="text/javascript" src="/js/addressLookup.js"></script> 
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDb0QyTvwp0TJ7H-8wKRgqcCGT6r21J2-s&libraries=places&sensor=false"></script>
+    <% //<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABNLj7JH5IAXMJndJ4bXA3G6oyF88g1V4&libraries=places&callback=initAutocomplete" async defer></script> %>
+   
+</body>
+
+
+</html>

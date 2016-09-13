@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html ng-app="tatilan" lang="fa" xml:lang="fa">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Tatilan</title>
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap/bootstrap.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap/bootstrap-theme.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/bootstrap-overrides.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/common.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/carousel.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/search-result.css">
+    <link type="text/css" rel="stylesheet" media="all" href="../css/registrationSteps.css">
+    <link type="text/css" rel="../lib/angular-ui-bootstrap/src/datepicker/datepicker.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body ng-controller="registration" id="registration" ng-style="style()" resize ng-cloak>
+    
+
+    <!-- Modal -->
+<div id="confirmation" class="modal fade" role="dialog" style="z-index: 1050">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #8CDFF3; height: 220px">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+      </div>
+        
+      <div class="modal-body">
+          <ng-include src="'result_partial.html'" id="confirmation-listing-view"></ng-include>
+        <h3 class="center">{{copy.registration.confirmationMessage}}</h3>
+        <p class="text-muted center" style="padding: 5px 40px">{{copy.registration.confirmationMessageDetails}}</p>
+        <div style="margin: 25px auto">
+            <div class="col-sm-6"><button class="btn pull-left btn-frame" style="width: 200px">{{copy.registration.goToCalendar}}</button></div> 
+            <div class="col-sm-6"><button class="btn btn-primary" style="width: 200px">{{copy.registration.goToListing}}</button></div>  
+            <div class="clearfix"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>    
+    
+<div class="main-parent">
+<ng-include src="'navigation_partial.html'" style="position: relative;"></ng-include>
+<div class="sub-nav">آپارتمان کامل در بابلسر</div>
+<div class="position: relative" ng-style="fullHeight(122)">
+<div class="sideNav" >
+    <div class="nav-content">
+        <ul>
+            <li class="text-muted">{{copy.registration.listing}}</li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('description')}"><a href="#/description">{{copy.registration.descriptions}} </a><i class="material-icons pull-left">add</i></li>
+            <li class="h4 nav-item" ng-if="" ng-class="{selected: $state.includes('basic')}"><a href="#/basics">{{copy.registration.basics}}</a><i class="material-icons pull-left">add</i></li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('address')}"><a href="#/address">{{copy.registration.location}}</a><i class="material-icons pull-left">add</i></li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('amenities')}"><a href="#/amenities">{{copy.details.amenities}}</a><i class="material-icons pull-left">add</i></li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('photos')}"><a href="#/photos">{{copy.registration.photos}}</a><i class="material-icons pull-left">add</i></li>
+            <!--<li class="h4 nav-item">{{copy.registration.homeSafety}} <i class="material-icons pull-left">add</i></li>-->
+            <li class="text-muted">{{copy.registration.hosting}}</li>
+            <li class="h4 nav-item" ng-class="{selected: $state.includes('pricing')}"><a href="#/pricing">{{copy.registration.pricing}}</a><i class="material-icons pull-left">add</i></li>
+            <li class="h4 nav-item"><a href="#/booking">{{copy.registration.booking}}</a><i class="material-icons pull-left">add</i></li>
+            <li class="h4 nav-item"><a href="#/calendar">{{copy.registration.calendar}}</a><i class="material-icons pull-left">add</i></li>
+            
+            
+        </ul>
+    </div>
+    <div class="step-count top-border-gray">
+        <h4><span class="brand-color">7</span> {{copy.registration.stepsCount}}</h4>
+    </div>
+</div>
+    
+<div class="registration-container" >
+    <div class="registration-background"></div>
+
+    <!--<div  ui-view></div> -->
+    <div class="registration-content">
+        <div ui-view></div>
+    </div>
+
+</div>
+    <!--<div class="clearfix"></div>
+<ng-include src="'footer.html'" style=""></ng-include> -->
+</div>
+    
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+
+
+<script type="text/javascript" src="../lib/angular/angular.js"></script>
+    <script type="text/javascript" src="../lib/angular-bootstrap/index.js"></script>
+    <script type="text/javascript" src="../lib/angular-ui-bootstrap/src/datepicker/datepicker.js"></script>
+<script type="text/javascript" src="../lib/angular-ui-bootstrap/template/datepicker/datepicker.html.js"></script>
+<script type="text/javascript" src="../lib/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="../lib/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="../lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.0.js"></script>
+<script type="text/javascript" src="../lib/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="../lib/angular-cookies/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="../lib/datepicker/persiandate.js"></script>
+<script type="text/javascript" src="../lib/datepicker/persian-datepicker-tpls.js"></script>
+<script type="text/javascript" src="../js/carousel.js"></script>
+<script type="text/javascript" src="../lib/sticky/sticky.min.js"></script>
+<script type="text/javascript" src="../js/directivs/persian.date.filter.js"></script>
+<script type="text/javascript" src="../js/directivs/persian.date.tpl.js"></script>
+ 
+
+
+
+    
+<script type="text/javascript" src="../js/app.js"></script>
+<script type="text/javascript" src="../js/copy.js"></script>
+<script type="text/javascript" src="../js/directivs/resize.directive.js"></script>
+<script type="text/javascript" src="../js/directivs/googel.autocomplete.js"></script>
+    
+    
+<script type="text/javascript" src="../js/routes/registration.routes.js"></script>
+   
+<script type="text/javascript" src="../js/controllers/signing.client.controller.js"></script>
+     <script type="text/javascript" src="../js/controllers/listRegistration.client.controller.js"></script>
+    <script type="text/javascript" src="../js/addressLookup.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABNLj7JH5IAXMJndJ4bXA3G6oyF88g1V4&libraries=places&callback=initAutocomplete" async defer></script>
+</body>
+</html>

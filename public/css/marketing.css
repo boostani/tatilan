@@ -1,0 +1,19 @@
+.howToRentHeader {
+	background: url(/img/howToCover.png) center 172px no-repeat #65C5DC;
+	height: 400px;
+    margin-top: -70px;
+}
+
+.step {
+
+	bbackground-color: #bce5ee;
+    border-radius: 50%;
+    font-size: 18px;
+    height: 60px;
+    padding: 20px;
+    text-align: center;
+    width: 60px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}

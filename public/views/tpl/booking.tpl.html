@@ -1,0 +1,50 @@
+<h3>{{copy.registration.bookingTitle}}</h3>
+<p>{{copy.registration.bookingTitleDescription}}</p>
+<div class="top-margin-30 top-border-gray" style="padding-top: 30px">
+
+    <div class=" col-sm-6" >
+        <div class="white-box center" style="padding: 10px">
+        <div class="spinner booking-overlay" ng-if="overlayFrequent">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+            <i class="material-icons green" ng-if="booking.frequentRenter == true" style="font-size: 2.4em">check_circle</i>
+            <div style="height: 34px" ng-if="booking.frequentRenter == false"></div>
+            <h4>{{copy.registration.bookAlmostAll}}</h4>
+            <div class="clearfix" style="padding-top: 15px"></div>
+            <div class="top-border-gray top-margin-30" style="padding-top: 20px">
+                <p>{{copy.registration.bookAlmostAllDescription}}</p>
+                <buttn class="btn btn-large btn-frame full-width" 
+                       style="margin-bottom: 10px; margin-top: 10px"
+                       ng-click="setFrequent()">{{copy.registration.select}}</buttn>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="white-box center" style="padding: 10px">
+        <div class="spinner booking-overlay" ng-if="overlayNotFrequent">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+            <i class="material-icons green" ng-if="booking.frequentRenter == false" style="font-size: 2.4em">check_circle</i>
+            <div style="height: 34px" ng-if="booking.frequentRenter == true"></div>
+            <h4>{{copy.registration.bookSomeTimes}}</h4>
+            <div style="padding-top: 15px" class="clearfix"></div>
+            <div class="top-border-gray top-margin-30" style="padding-top: 20px">
+                <p>{{copy.registration.bookSomeTimesDescription}}</p>
+                <buttn class="btn btn-large btn-frame full-width" 
+                       style="margin-bottom: 10px; margin-top: 10px"
+                       ng-click="setInfrequent()">{{copy.registration.select}}</buttn>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="clearfix"></div>
+
+ <div class="top-margin-30 top-border-gray" style="padding-top: 25px">
+    <a href="#/pricing">{{copy.registration.previous}}</a>   
+     <button class="btn btn-primary pull-left btn-lg" ng-click="$parent.nextPage('calendar')">{{copy.registration.next}}</button>             
+</div>

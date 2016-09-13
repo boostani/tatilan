@@ -1,0 +1,30 @@
+<% include partials/header.ejs%>
+<% // include file specific css files here %>
+</head>
+<body ng-app="tatilan" ng-controller="terms" ng-cloak>
+<div class="main-parent">
+
+
+<% include partials/nav.ejs %>
+    <div class="page-container panel" style="padding: 40px 55px; margin-top: 70px" >
+    	<h2>Terms & Conditions</div>
+    </div>
+
+    
+    <% include partials/footer.ejs%>
+    
+</div>
+    
+    <script>
+        window.user = <%- JSON.stringify(user) %>;
+    </script>
+
+    <% include partials/jsfiles.ejs%>
+    <% // include file specific js files here %>
+   
+    <script type="text/javascript" src="/js/controllers/terms.client.controller.js"></script>
+
+ <script type="text/javascript" src="/js/controllers/signing.client.controller.js"></script>
+   
+</body>
+</html>
