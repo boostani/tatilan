@@ -17,7 +17,7 @@ module.exports = {
     dbpg : {
         hostname: 'localhost',
         username: 'siteadmin',
-        password: 'sitepassword',
+        password: 'prodSitepassword',
         database: 'tatilan'
     },
     
